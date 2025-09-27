@@ -1,5 +1,5 @@
 Whelom to the Lys' bunker !
-You shuld'nt fond what do you sherching.
+You will not find what do you sherching.
 
 To fond the LysBunker's resources pleas go to https://lesblockhauslyssois-lbl.github.io/LBL/
 
