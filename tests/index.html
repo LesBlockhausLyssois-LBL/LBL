@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Blockhaus Lyssois</title>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/QNR1wwC3/LBL-2.png" />
+
+  <meta name="google-site-verification" content="5o9irFU7tL1HnV5d5xoLLYirqNWTNGJmZAEyIFZxj48" />
+  <link rel="canonical" href="https://lesblockhauslyssois-lbl.github.io/LBL/" />
+
+  <!-- SEO de base -->
+  <meta name="google-site-verification" content="cydYtbmdvqtDGK0UeZR3MJKOUgTLQ5OP5PRBEw4IUHQ" />
+  <title>Les Blockshaus LYSsois - Site officiel</title>
+  <meta name="description" content="Site officiel des Blockshaus LYSsois. Découvrez nos projets, événements et actualités.">
+  <meta name="keywords" content="Blockshaus, Lyssois, association, projets, événements, actualités">
+  <meta name="author" content="Les Blockshaus LYSsois">
+
+  <!-- Mobile et accessibilité -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Référencement et partage réseaux sociaux -->
+  <meta property="og:title" content="Les Blockshaus LYSsois - Site officiel">
+  <meta property="og:description" content="Découvrez les projets et actualités des Blockshaus LYSsois.">
+  <meta property="og:url" content="https://lesblockshauslyssois.github.io/LBL/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lesblockshauslyssois.github.io/LBL/images/preview.jpg"> <!-- Remplace par l’URL d'une image de ton site -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Les Blockshaus LYSsois - Site officiel">
+  <meta name="twitter:description" content="Découvrez les projets et actualités des Blockshaus LYSsois.">
+  <meta name="twitter:image" content="https://lesblockshauslyssois.github.io/LBL/images/preview.jpg"> <!-- Même image que ci-dessus -->
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; }
+    header {
+      width: 100%;
+      background-color: #2f3e46;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    .content {
+      display: flex;
+      height: calc(100vh - 70px);
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #e6eef3;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+    .sidebar.collapsed {
+      transform: translateX(-100%);
+    }
+
+    @media (max-width: 800px) {
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 70px;
+        height: calc(100vh - 70px);
+        z-index: 10000;
+      }
+      .content {
+        flex-direction: column;
+      }
+    }
+
+    .sidebar h3 { text-align: center; margin-bottom: 1rem; }
+    .sidebar button {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .sidebar button:hover { background-color: #1976d2; }
+    .main-container { flex: 1; overflow-y: auto; padding: 2rem; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    h1 { font-size: 1.8rem; margin-bottom: 1rem; }
+    p { font-size: 1rem; line-height: 1.6; }
+    strong { font-weight: bold; }
+    .iframe-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .iframe-container iframe,
+    .cartes-section iframe,
+    .cartes-content iframe,
+    #contact iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .cartes-layout, .cartes-content, .cartes-section { width: 100%; }
+    .cartes-menu button {
+      background-color: #1976d2;
+      color: #fff;
+      border: none;
+      padding: 0.5rem;
+      margin: 0.25rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .cartes-section { display: none; }
+
+    .cartes-section.active { display: block; margin-top: 1rem; }
+
+    .contact-iframe-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .contact-iframe-row iframe {
+      flex: 1;
+      min-width: 400px;
+      height: 80vh;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+  </style>
+
+
+</head>
+<body>
+
+  <header>
+    <button id="sidebar-toggle" style="position:absolute; left:1rem; top:1rem; background:#1976d2; color:white; border:none; border-radius:4px; padding:0.5rem 1rem; font-size:1.2rem; cursor:pointer; z-index:10001;">
+    ☰
+  </button>
+    Les Blockhaus Lyssois
+  </header>
+
+
+  <div class="content">
+    <aside class="sidebar">
+      <div>
+        <h3>Ressources :</h3>
+        <button onclick="showTab('groupe')">Tout savoir sur le groupe</button>
+        <button onclick="showTab('chiffres')">Les Blockhaus lyssois en chiffres</button>
+        <button onclick="showTab('docs')">Docs</button>
+        <button onclick="showTab('cartes')">Cartes</button>
+        <button onclick="showTab('reseaux')">Nos réseaux</button>
+        <button onclick="showTab('nouveautes')">Les nouveautés !</button>
+
+      </div>
+      <button onclick="showTab('contact')">Nous contacter</button>
+    </aside>
+    <div class="main-container">
+
+      <!--tout savoir sur le groupe-->
+
+      <div id="groupe" class="tab-content active">
+        <h1>À propos du groupe</h1>
+        <p><strong>Les Blockhaus Lyssois : Béton, histoire et mémoire</strong></p>
+        <p>
+          Le groupe "Les Blockhaus Lyssois" est né d'une passion commune pour l'histoire et le patrimoine local, plus précisément celui des blockhaus présents sur le territoire de Lys-lez-Lannoy et ses environs.
+          Notre objectif principal est de préserver la mémoire de ces constructions, témoins silencieux d'un passé souvent douloureux mais toujours fascinant.
+        </p>
+        <p>
+          <strong>Nous nous engageons dans plusieurs actions pour atteindre ce but :</strong><br><br>
+          <strong>Recherche et documentation :</strong> Nous menons des recherches approfondies sur l'histoire des blockhaus, leur construction, leur utilisation. Nous rassemblons des informations, des photos et des documents d'archives pour constituer un répertoire complet et accessible au public.<br><br>
+          <strong>Préservation du patrimoine :</strong> Nous œuvrons à sensibiliser les autorités et le grand public à leur importance historique.<br><br>
+          <strong>Partage des connaissances :</strong> faire découvrir l'histoire des blockhaus à un public large, des passionnés d'histoire aux simples curieux.
+        </p>
+        <p><strong>Rejoignez "Les Blockhaus Lyssois"</strong> pour partager votre passion, contribuer à la sauvegarde de notre histoire et découvrir ensemble les secrets de ces fascinantes constructions !</p>
+      </div>
+
+
+      <!--Les Blockhaus lyssois en chiffres-->
+
+      <div id="chiffres" class="tab-content">
+
+        <p>Nombre de blockhaus reperctoriées : <strong>1 300</strong></p><br><br>
+        <p>Nombre de documents sur les blockhaus : <strong>9</strong></p><br><br>
+        <p>Nombre de documents sur les types de blockhaus : <strong>25</strong></p><br><br>
+        <p>Nombre de cartes : <strong>2</strong></p><br><br>
+        <p>Nombre de definitions : <strong>9</strong></p><br><br>
+
+      </div>
+
+      <!--Docs-->
+
+      <div id="docs" class="tab-content">
+        <div class="cartes-menu">
+          <button onclick="showDocSection('doc-blockhaus')">Les blockhaus</button>
+          <button onclick="showDocSection('doc-types')">Les types de blockhaus</button>
+          <button onclick="showDocSection('doc-def')">Les definitions</button>
+        </div>
+
+
+
+<!-- _____________________________________________________________________ -->
+<!-- _____________________________________________________________________ -->
+<!-- _____________________________________________________________________ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--
+          DANS TOUT LES TABLEAUX :
+
+          <a href="LE LIEN ENTRE GUILLEMETS" target="_blank">LE TEXTE QUE TU VEUX METTRE SANS GUILLEMETS</a><br>
+
+        -->
+
+
+
+
+
+        <!--     DOCS SUR LES BLOCKHAUS     -->
+
+
+
+
+
+
+
+
+
+
+        <div class="cartes-content">
+          <div id="doc-blockhaus" class="cartes-section active">
+
+
+        <h2>Documents sur les blockhaus</h2>
+
+        <table border="1" cellpadding="8" cellspacing="0">
+          <tr>
+            <td valign="top">
+              <strong>blockhaus sur lys :</strong><br>
+              <a href="blockhaus/BEF705.html" target="_blank">BEF 705</a><br>
+
+              <a href="blockhaus/BEF347.html" target="_blank">BEF 347</a><br>
+
+              <a href="blockhaus/BEF318.html" target="_blank">BEF 318</a><br>
+
+              <a href="blockhaus/BEF339.html" target="_blank">BEF 339</a><br>
+
+              <a href="blockhaus/BEF697.html" target="_blank">BEF 697</a><br>
+
+              <a href="blockhaus/B293.html" target="_blank">B293</a>
+
+            </td>
+            <td valign="top">
+              <strong>autres blockhaus :</strong><br>
+              <a href="blockhaus/B285.html" target="_blank">B285</a><br>
+               <a href="https://docs.google.com/presentation/d/1Nd1ivOvoJ_VWATvtK9aeVcEGzGBqalF_t5KbpOlVa8w/edit?usp=sharing" target="_blank">BEF 687</a><br>
+              
+              <a href="blockhaus/BEF691.html" target="_blank">BEF 691</a><br>
+            </td>
+          </tr>
+        </table>
+
+
+
+
+
+
+
+
+        <!--     DOCS SUR LES LES TYPES     -->
+
+
+
+
+
+
+
+
+
+          </div>
+
+
+          <div id="doc-types" class="cartes-section">
+
+          <h2>Les types de blockhaus</h2>
+
+          <table border="1" cellpadding="8" cellspacing="0">
+            <tr>
+
+            <!--      1ere colone du tableau     -->
+
+              <td valign="top">
+                <strong>blockhaus construits par le BEF en 1939-1940 :</strong><br>
+                <a href="https://docs.google.com/document/u/1/d/1llll5Zb6aNpB4pfpfdQSdt_djpSOUS_s3mYankAa218/edit" target="_blank">Type U2</a><br>
+
+                <a href="https://docs.google.com/document/u/1/d/1kRvgvjZTbONi6NPUg7vEI_BSDN-SCEZBRCdWyJo-KMk/edit" target="_blank">Type U1</a><br>
+
+                <a href="https://docs.google.com/document/u/1/d/1c0Y05Qhs-YTnT4tmjxYsD8zgQiGfOvxDK9tLkf8xCR0/edit" target="_blank">Type W5</a><br>
+
+                <a href="https://docs.google.com/document/u/1/d/11AM5oKqb1bjAHbwas8xLqLsXWvKQ28Uu4ETp2OFmHwQ/edit" target="_blank">Type W1</a><br>
+
+                <a href="https://docs.google.com/document/u/1/d/1UsVGD9Hu7AaGy9mkbGxit2K9KrGeveZLgzhYzMK9PKw/edit" target="_blank">Type R</a><br>
+
+                <a href="https://docs.google.com/document/u/1/d/1ZJBHO1n4KuPE6Hr-VWFIEbf_kz2amndXrXjp0ZT-G7E/edit" target="_blank">Type W4</a><br>
+
+                <a href="https://docs.google.com/document/u/1/d/1a5jp4yr-eI1puxmQBzsQDFcnPhhQHpFJDaTIgd_xtl4/edit" target="_blank">Type W3</a><br>
+
+                <a href="https://docs.google.com/document/d/1VIOuLLzw6dXIdvyk7938khAFlWRJJdmqCQyyc6SCsBc/edit?usp=sharing" target="_blank">Type W2</a><br>
+
+                <a href="https://docs.google.com/document/d/1JWCZHHd4iELIaJIBl_FtkNVaxUECOXaOyenKdpyrHL4/edit?usp=sharing" target="_blank">Casemate d’artillerie légère</a>
+
+              </td>
+
+
+              <!--      2eme colone du tableau     -->
+
+              <td valign="top">
+                <strong>blockhaus construits par les Français de 1937 à 1939 :</strong><br>
+                <a href="https://docs.google.com/document/d/1Ja8lQrttk2tEAlG9j4bX96Sz2eB5JpW0YcRGu-Naw6g/edit?usp=sharing" target="_blank">Type N1F</a><br>
+
+                <a href="https://docs.google.com/document/d/1pGxqboH1dQv_iFVe9DcI-gcwtFKOwbtRFM4YEZs3lmg/edit?usp=sharing" target="_blank">Type N2F</a><br>
+
+                <a href="https://docs.google.com/document/d/1nrVBizDU3VjK1u7sjwFt-e_QeOj4PLwUFPhzoWCBBe0/edit?usp=sharing" target="_blank">Type N1 D/G</a><br>
+
+                <a href="https://docs.google.com/document/d/1N5tF9yzjXFxrENBYjiK2HVtoaDV6H4eF5IAdRg-_xwU/edit?usp=sharing" target="_blank">Type N2 D/G</a><br>
+
+                <a href="https://docs.google.com/document/d/1_wnvW95kMe7BgItAwNOJc27_vJjVvRxwbA8rMCrj0rc/edit?usp=sharing" target="_blank">Type Da</a><br>
+
+                <a href="https://docs.google.com/document/d/1hMt7KZMG6wP6CJ3inCirqMofc_iWrwtNVc6ySd34UPg/edit?usp=sharing" target="_blank">Type Db</a><br>
+
+                <a href="https://docs.google.com/document/d/1u1xtQuljMka8OA7j8oqUgniHUAHqEBUvAucDYV7Y62w/edit?usp=sharing" target="_blank">Type Dc</a><br>
+
+                <a href="https://docs.google.com/document/d/1J1N5bttcrb0KyAvJV08e9ZHfD2uJ8NJNmNbdxnbN0uI/edit?usp=sharing" target="_blank">Type Dd</a><br>
+
+                <a href="https://docs.google.com/document/d/1xud4UGdao1R4RBdS2HGVrIrRT3wY_wfyt_PEKlXQWO4/edit?usp=sharing" target="_blank">Type DSD/DSG</a><br>
+
+                <a href="https://docs.google.com/document/d/1bErTsMBCzs5VjOjYFjiLhPKiLo2EIneCZzrS82Fwcfg/edit?usp=sharing" target="_blank">Type GSD/GSG</a><br>
+
+                <a href="https://docs.google.com/document/d/1FH1naPucrYEEOilKIzH3P0qwYRTpKP2xI8_vG4U6sDY/edit?usp=sharing" target="_blank">Type G1</a><br>
+
+                <a href="https://docs.google.com/document/d/1kgV-ABfIUdR9DcTdQE-tbK9r0xhEqhZ9mX9lm8K-qyw/edit?usp=sharing" target="_blank">Type G2</a><br>
+
+                <a href="https://docs.google.com/document/d/1bGcR5rF7dGMDTKxYUhsts-5PVVF_CptrEUWxYxKXE6k/edit?usp=sharing" target="_blank">Type G3</a><br>
+
+                <a href="https://docs.google.com/document/d/1biilMp_DwME364ecL3q99x8poBZNNGYvmENrvPXjUMs/edit?usp=sharing" target="_blank">Type G4</a><br>
+
+                <a href="https://docs.google.com/document/d/1qSjtDKCaAu3GCD5wWaXhr5hZ7P73OrS6tPCwEaYuR9M/edit?usp=sharing" target="_blank">Blockhaus d’observation pour tourelle TSF</a><br>
+
+                <a href="https://docs.google.com/document/u/1/d/1dB8UHT0NL_0dcfGLEpJKImQSduq0DgWl8C0oF5Mcu4s/edit" target="_blank">Type A1</a>
+
+              </td>
+            </tr>
+          </table>
+
+
+          </div>
+
+
+
+
+
+          <!--      DOCS SUR LES DEFINITIONS     -->
+
+
+
+
+
+          <div id="doc-def" class="cartes-section">
+
+          <h2>Les définitions</h2>
+
+            <table border="1" cellpadding="8" cellspacing="0">
+              <tr>
+                <td>
+                  <a href="https://docs.google.com/document/d/1DvSBuPCS990sQELWWuqTXsea4ur0IPJN26qbyjMGOS8/edit?usp=sharing" target="_blank">Le B.E.F</a><br>
+
+                  <a href="https://docs.google.com/document/u/1/d/1dbSeKAQ10IvF9qD2pTo4jsWeNaaReZBjubhNdePobzI/edit" target="_blank">Le Secteur Fortifié de Lille (SFL)</a><br>
+
+                  <a href="https://docs.google.com/document/d/1K83lsEJ3mkqOiXvRIG4wOB2AvJM-GunMa-oQpX6H0vg/edit?usp=sharing" target="_blank">Blockhaus</a><br>
+
+                  <a href="https://docs.google.com/document/u/1/d/15OhLkXYJaxz2va8V3IcaaGxG5Rod49bC2iTG_h2y2rQ/edit" target="_blank">Ligne Maginot</a><br>
+
+                  <a href="https://docs.google.com/document/d/1CNnPmyhW-IN4db7KJMNSie7c9XxiCihRFZDk1um6Nqg/edit?usp=sharing" target="_blank">Ligne Daladier</a><br>
+
+                  <a href="https://docs.google.com/document/d/1Wiyg2GNnqL3AD5j3ixHV0tTuJ3jkuAKKMtSl4YqDUkA/edit?usp=sharing" target="_blank">Bunker</a><br>
+
+                  <a href="https://docs.google.com/document/u/1/d/1PSpN8LKo2es5WF2HFr00ZNb0XMZJ1N6iCJi24cSaagQ/edit" target="_blank">Oreillon</a><br>
+
+                  <a href="https://docs.google.com/document/d/1ZUlZ78FpxFZEfsTyTsOJx35yU317LBnR3K10kKihdQ0/edit?usp=sharing" target="_blank">Flanquement</a><br>
+
+                  <a href="https://docs.google.com/document/d/1XbVYvrqk9JwxkiPHUscandPSJCyiLnBly6OrlI7enFM/edit?usp=sharing" target="_blank">Frontal</a>
+
+                </td>
+              </tr>
+            </table>
+
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- _____________________________________________________________________ -->
+<!-- _____________________________________________________________________ -->
+<!-- _____________________________________________________________________ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--cartes-->
+
+      <div id="cartes" class="tab-content">
+        <div class="cartes-menu">
+          <button onclick="showCarteSection('intro')">Comment utiliser nos cartes ?</button>
+          <button onclick="showCarteSection('sf-lille')">Secteur Fortifié de Lille</button>
+          <!--<button onclick="showCarteSection('lys-lez-lannoy')">Proximité Lys Lez Lannoy</button>-->
+          <button onclick="showCarteSection('ww1')">WW1 encore existants</button>
+        </div>
+        <div class="cartes-content">
+          <div id="intro" class="cartes-section active">
+            <iframe src="https://docs.google.com/document/d/1Jzigg7uVxinlWrn8m_tWB7tfTqt_JpOJmFEapNo8b_Y/edit?usp=sharing"></iframe>
+          </div>
+
+          <div id="sf-lille" class="cartes-section">
+            <p>La carte du Secteur Fortifié de Lille est disponible <a href="https://earth.google.com/earth/d/1DS-_KW_HaaLBEMzQVbN8XJyOlxAXzmBk?usp=sharing" target="_blank">ici</a> !</p>
+          </div>
+
+          <div id="lys-lez-lannoy" class="cartes-section">
+            <p>La carte des Blockhaus a proximité Lys Lez Lannoy est disponible <a href="https://earth.google.com/earth/d/1gkirO73Bu1NXkVkhJr6S54GKHb1b4yrY?usp=sharing" target="_blank">ici</a> !</p>
+          </div>
+
+          <div id="ww1" class="cartes-section">
+            <p>La carte des blockhaus WW1 encore existants est disponible <a href="https://earth.google.com/earth/d/1ubdMm6uHI_0Nltm1WbiJYL2FdQyzoa8U?usp=sharing" target="_blank">ici</a> !</p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!--Reseaux-->
+
+      <div id="reseaux" class="tab-content">
+        <h2>Nos reseaux</h2>
+        <p>
+          <strong><a href="https://www.facebook.com/profile.php?id=61576009351029" target="_blank">FaceBook</a></strong><br><br>
+          <strong><a href="https://www.youtube.com/@LesBlockhausLyssois" target="_blank">youtube</a></strong><br><br>
+          <strong><a href="https://discord.gg/RgNtceQY79" target="_blank">Discord</a></strong>
+        </p>
+      </div>
+
+
+      <!--Nouveautées-->
+
+      <div id="nouveautes" class="tab-content">
+        <h2>↶ Les nouveautés ! ↷</h2>
+          <div id="doc-blockhaus" class="cartes-section active">
+            <iframe src="https://docs.google.com/document/d/1TTZqbkpq91dQOEN0viWwVWYkRpcsjmQ-pJwc-ZSGh54/edit?usp=sharing"></iframe>
+          </div>
+      </div>
+
+      <!--Contacts-->
+
+      <div id="contact" class="tab-content">
+        <h2>Contactez-nous</h2>
+        <p><strong>Email :</strong> lesblockhauslyssois@gmail.com</p>
+        <p><strong>↶ Ou envoi directement ta demande ici ! ↷</strong></p>
+
+        <div class="contact-iframe-row">
+          <!-- Iframe 1 : formulaire de contact -->
+          <iframe src="https://forms.gle/RuJHYxs7H9nse5938">Chargement…</iframe>
+
+          <!-- Iframe 2 : par exemple une feuille Google Sheets ou autre -->
+          <iframe src="https://forms.gle/LswaLnr43nLK3QYV9">Chargement…</iframe>
+        </div>
+
+        <p>©muller.G_08/2025</p>
+      </div>
+
+
+      <!--page admin-->
+
+      <div id="admin" class="tab-content">
+        <h1>Panneau Administrateur</h1>
+        <div class="iframe-container">
+          <iframe src="https://docs.google.com/spreadsheets/d/1m8O5xCyuiGEYRew49FVYCwHfn_wQGpYA0K7tdydiKDI/edit?usp=sharing"></iframe>
+          <iframe src="https://docs.google.com/spreadsheets/d/1pdm02rz6KHvSc7ZFvS6jrHHlHrzjSxSfZ82HgYNGuKU/edit?usp=sharing"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function showDocSection(id) {
+      document.querySelectorAll('#docs .cartes-section').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function showCarteSection(id) {
+      document.querySelectorAll('#cartes .cartes-section').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function askAdminCode() {
+      const code = prompt("Entrez le code administrateur :");
+      if (code === "Hetzer123@") {
+        showTab("admin");
+      } else if (code !== null) {
+        alert("Code incorrect.");
+      }
+    }
+  </script>
+
+
+<!-- POPUP CONDITIONS -->
+
+
+  <div id="popup-conditions" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.3s ease;">
+    <div style="background: white; width: 90%; max-width: 650px; height: 70vh; display: flex; flex-direction: column; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); overflow: hidden;">
+      <div style="padding: 1rem 1.5rem; overflow-y: auto; flex: 1;">
+        <h2>Conditions d'utilisation</h2>
+      <p><strong>1. Objet du site</strong><br>
+      Le site Les Blockhaus Lyssois a pour vocation de partager des informations historiques et documentaires sur les blockhaus présents à Lys-lez-Lannoy et dans ses environs. Les ressources fournies (cartes, documents, photos, etc.) sont destinées à un usage éducatif et informatif uniquement.</p>
+
+      <p><strong>2. Propriété intellectuelle</strong><br>
+      Les photos sont interdites à la reproduction.<br>
+      Il est interdit de reproduire, copier, modifier, diffuser ou exploiter ces contenus sans autorisation écrite préalable.</p>
+
+      <p><strong>3. Utilisation des cartes</strong><br>
+      Les cartes fournies ont pour seul but de localiser des blockhaus à des fins de recherche, de mémoire ou de curiosité historique.<br><br>
+      L'utilisateur s'engage à ne pas utiliser ces cartes :<br>
+      - À des fins illégales (ex. : intrusion, vandalisme, vol)<br>
+      - Pour accéder à des propriétés privées sans autorisation<br>
+      - Pour causer des perturbations ou des nuisances<br><br>
+      Le groupe Les Blockhaus Lyssois décline toute responsabilité en cas de comportement inapproprié, d'accident ou de violation de la loi.</p>
+
+      <p><strong>4. Respect de la propriété privée</strong><br>
+      Certains blockhaus sont situés sur des terrains privés. Il est strictement interdit d’y accéder sans l’accord explicite du propriétaire. Le respect de la vie privée des riverains et des règles de droit est une priorité.</p>
+
+      <p><strong>5. Sécurité et responsabilité</strong><br>
+      Toute exploration sur le terrain reste à l’initiative de l’utilisateur.<br>
+      Les Blockhaus Lyssois n’encouragent pas l’exploration physique de ces lieux. En cas d’accident ou d’incident, le site et ses administrateurs ne pourront en aucun cas être tenus responsables.</p>
+
+      <p><strong>6. Données personnelles</strong><br>
+      Le formulaire de contact peut recueillir des données personnelles (adresse email). Celles-ci ne seront jamais partagées ou revendues, et ne serviront qu’à répondre aux demandes reçues.</p>
+
+      <p><strong>7. Acceptation des conditions</strong><br>
+      En accédant à ce site, vous reconnaissez avoir lu, compris et accepté les présentes conditions d'utilisation.</p>
+      </div>
+      <div style="padding: 1rem 1.5rem; border-top: 1px solid #ccc;">
+        <label style="display: block; margin-bottom: 0.75rem;">
+          <input type="checkbox" id="accept-checkbox" />
+          J'ai lu et j'accepte les conditions d'utilisation
+        </label>
+        <button id="continue-button" disabled style="width: 100%; padding: 0.75rem; background-color: #999; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: not-allowed;">
+          Continuer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    }
+
+    const checkbox = document.getElementById('accept-checkbox');
+    const button = document.getElementById('continue-button');
+    const popup = document.getElementById('popup-conditions');
+
+    checkbox.addEventListener('change', function () {
+      button.disabled = !this.checked;
+      button.style.cursor = this.checked ? 'pointer' : 'not-allowed';
+      button.style.backgroundColor = this.checked ? '#2ecc71' : '#999';
+    });
+
+    button.addEventListener('click', function () {
+      if (checkbox.checked) {
+        popup.style.opacity = '0';
+        setTimeout(() => popup.style.display = 'none', 300);
+      }
+    });
+
+    document.getElementById('sidebar-toggle').addEventListener('click', function () {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('collapsed');
+    });
+  </script>
+
+
+</div>
+
+</body>
+</html>
