@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecteur PDF</title>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/QNR1wwC3/LBL-2.png" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; }
+    header {width: 100%;background-color: #2f3e46;color: white;padding: 1rem;text-align: center;font-size: 1.8rem;}
+    iframe{width: 100%;height: 80vh;border: none;}
+    html, body {height: 100%;margin: 0;display: flex;flex-direction: column;}
+    header {flex: 0 0 auto;}
+    iframe {flex: 1 1 auto;width: 100%;border: none;box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+  </style>
+</head>
+<body>
+
+<header id="title">Chargement...</header>
+<iframe id="pdfViewer" src=""></iframe>
+
+<script>
+  // Récupère le paramètre "nom" de l’URL
+  const params = new URLSearchParams(window.location.search);
+  const docName = params.get("nom");
+
+  // Si pas de nom → afficher un message
+  if (!docName) {
+    document.getElementById("title").innerText = "Aucun document sélectionné";
+  } else {
+    // Charger la "base de données" JSON
+    fetch("docs.json")
+      .then(response => response.json())
+      .then(data => {
+        if (data[docName]) {
+          document.getElementById("title").innerText = "Les Blockhaus Lyssois - " + docName;
+          document.getElementById("pdfViewer").src = data[docName];
+        } else {
+          document.getElementById("title").innerText = "Document introuvable";
+        }
+      })
+      .catch(err => {
+        document.getElementById("title").innerText = "Erreur de chargement";
+        console.error(err);
+      });
+  }
+</script>
+
+</body>
+</html>
