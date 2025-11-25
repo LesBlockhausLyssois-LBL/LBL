@@ -39,84 +39,151 @@
     body { 
       margin: 0; 
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+      background: linear-gradient(135deg, rgba(245, 247, 250, 0.95) 0%, rgba(200, 220, 240, 0.95) 100%), url('light.jpg') center/cover no-repeat fixed;
+      background-blend-mode: overlay;
       min-height: 100vh;
-        color: #1d1d1f;
-        transition: background 0.3s ease, color 0.3s ease;
-      }
+      color: #1d1d1f;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
     
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: linear-gradient(135deg, #1d1d1f 0%, #2a2a2a 100%);
-          color: #f5f5f7;
-        }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, rgba(25, 35, 60, 0.95) 0%, rgba(15, 25, 45, 0.95) 100%), url('dark.jpg') center/cover no-repeat fixed;
+        background-blend-mode: overlay;
+        color: #f5f5f7;
       }
+    }
     
     header {
       width: 100%;
+      margin: 0;
       background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.4);
       color: #1d1d1f;
-      padding: 1rem;
+      padding: 1.5rem 2rem;
       text-align: center;
       font-size: 1.8rem;
       font-weight: 600;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-        transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-      }
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
     
       @media (prefers-color-scheme: dark) {
         header {
-          background: rgba(30, 30, 30, 0.7);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          background: rgba(30, 30, 30, 0.6);
+          border: 1px solid rgba(255, 255, 255, 0.08);
           color: #f5f5f7;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1rem;
+        font-size: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        padding: 0.8rem 0.5rem;
+        font-size: 1.2rem;
+      }
     }
     
     .content {
       display: flex;
       height: calc(100vh - 70px);
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+      }
     }
     
     .sidebar {
-      width: 220px;
+      width: 280px;
       background: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-right: 1px solid rgba(255, 255, 255, 0.4);
-      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 24px;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-        transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-      }
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    }
     
       @media (prefers-color-scheme: dark) {
         .sidebar {
           background: rgba(30, 30, 30, 0.5);
-          border-right: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
     }
     
-    .sidebar.collapsed {
-      transform: translateX(-100%);
-    }
-
-    @media (max-width: 800px) {
+    @media (max-width: 768px) {
       .sidebar {
-        position: fixed;
-        left: 0;
-        top: 70px;
-        height: calc(100vh - 70px);
-        z-index: 10000;
-        width: 250px;
+        width: 100%;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: flex-start;
       }
-      .content {
-        flex-direction: column;
+      
+      .sidebar > div {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      
+      .sidebar h3 {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      
+      .sidebar button {
+        flex: 1;
+        min-width: 120px;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .sidebar a {
+        flex: 1;
+        min-width: 120px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .sidebar {
+        padding: 1rem;
+      }
+      
+      .sidebar button {
+        flex: 1 1 calc(50% - 0.25rem);
+        min-width: 100px;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+      }
+      
+      .sidebar a button {
+        width: 100%;
       }
     }
 
@@ -143,13 +210,13 @@
       -webkit-backdrop-filter: blur(20px);
       color: white;
       border: none;
-      padding: 0.85rem 1rem;
-      margin-bottom: 0.8rem;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
       cursor: pointer;
       border-radius: 12px;
       width: 100%;
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 500;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
@@ -173,7 +240,34 @@
       flex: 1; 
       overflow-y: auto; 
       padding: 2.5rem; 
-      background: transparent;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      .main-container {
+        background: rgba(30, 30, 30, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 1.5rem;
+        border-radius: 16px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .main-container {
+        padding: 1rem;
+        border-radius: 12px;
+      }
     }
     
     .tab-content { 
@@ -218,6 +312,20 @@
         }
     }
     
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+      }
+    }
+    
     h2 {
       font-size: 1.5rem;
       color: #1d1d1f;
@@ -232,6 +340,20 @@
         }
     }
     
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.2rem;
+        margin: 1rem 0 0.8rem 0;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1rem;
+        margin: 0.8rem 0 0.5rem 0;
+      }
+    }
+    
     p { 
       font-size: 1rem; 
       line-height: 1.7;
@@ -243,6 +365,20 @@
         p {
           color: #e0e0e0;
         }
+    }
+    
+    @media (max-width: 768px) {
+      p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
     }
     
     strong { 
@@ -275,6 +411,26 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
       backdrop-filter: blur(20px);
     }
+    
+    @media (max-width: 768px) {
+      .iframe-container iframe,
+      .cartes-section iframe,
+      .cartes-content iframe,
+      #contact iframe {
+        height: 60vh;
+        border-radius: 12px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .iframe-container iframe,
+      .cartes-section iframe,
+      .cartes-content iframe,
+      #contact iframe {
+        height: 50vh;
+        border-radius: 10px;
+      }
+    }
 
     .cartes-layout, .cartes-content, .cartes-section { 
       width: 100%; 
@@ -306,6 +462,26 @@
           background: rgba(30, 30, 30, 0.5);
           border: 1px solid rgba(255, 255, 255, 0.1);
         }
+    }
+    
+    @media (max-width: 768px) {
+      .cartes-menu {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .cartes-menu {
+        padding: 0.4rem;
+        gap: 0.3rem;
+      }
+      
+      .cartes-menu button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+      }
     }
     
     .cartes-menu::before {
@@ -387,6 +563,21 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     }
     
+    @media (max-width: 768px) {
+      .contact-iframe-row iframe {
+        min-width: 100%;
+        height: 60vh;
+        border-radius: 12px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .contact-iframe-row iframe {
+        height: 50vh;
+        border-radius: 10px;
+      }
+    }
+    
     table {
       width: 100%;
       border-collapse: collapse;
@@ -404,6 +595,33 @@
           background: rgba(30, 30, 30, 0.6);
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
+    }
+    
+    @media (max-width: 768px) {
+      table {
+        font-size: 0.9rem;
+        border-radius: 10px;
+      }
+      
+      table td {
+        padding: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      table {
+        font-size: 0.8rem;
+        border-radius: 8px;
+      }
+      
+      table td {
+        padding: 0.6rem;
+      }
+      
+      table a {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.75rem;
+      }
     }
     
     table td {
@@ -432,13 +650,139 @@
       text-decoration: underline;
     }
 
+    /* Social Media Grid */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .social-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      text-decoration: none;
+      color: #1d1d1f;
+      transition: all 0.3s ease;
+      gap: 1rem;
+    }
+
+    .social-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .social-icon {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .social-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .social-desc {
+      font-size: 0.9rem;
+      text-align: center;
+      color: #666;
+    }
+
+    .social-card.facebook {
+      background: linear-gradient(135deg, rgba(59, 89, 152, 0.1), rgba(59, 89, 152, 0.05));
+    }
+
+    .social-card.youtube {
+      background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.05));
+    }
+
+    .social-card.discord {
+      background: linear-gradient(135deg, rgba(88, 101, 242, 0.1), rgba(88, 101, 242, 0.05));
+    }
+
+    .social-card.instagram {
+      background: linear-gradient(135deg, rgba(225, 48, 108, 0.1), rgba(225, 48, 108, 0.05));
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .social-card {
+        background: rgba(30, 30, 30, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #f5f5f7;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      .social-desc {
+        color: #999;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .social-card {
+        padding: 1.5rem;
+      }
+      
+      .social-icon {
+        font-size: 2.5rem;
+      }
+      
+      .social-name {
+        font-size: 1.1rem;
+      }
+      
+      .social-desc {
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .social-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .social-card {
+        padding: 1.2rem;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1.5rem;
+      }
+      
+      .social-icon {
+        font-size: 2rem;
+        min-width: 40px;
+      }
+      
+      .social-name {
+        font-size: 1rem;
+        text-align: left;
+      }
+      
+      .social-desc {
+        display: none;
+      }
+    }
+
   </style>
 </head>
 <body>
   <header>
-    <button id="sidebar-toggle" style="position:absolute; left:1rem; top:1rem; background: rgba(0, 122, 255, 0.8); backdrop-filter: blur(20px); color:white; border:none; border-radius:12px; padding:0.6rem 1rem; font-size:1.2rem; cursor:pointer; z-index:10001; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);">
-    ☰
-  </button>
     Les Blockhaus Lyssois
   </header>
   <div class="content">
@@ -789,7 +1133,7 @@
 
       <!--Reseaux-->
 
-     <div id="reseaux" class="tab-content">
+      <div id="reseaux" class="tab-content">
         <h2>Nos réseaux sociaux</h2>
         <p style="margin-bottom: 2rem; color: #666;">Rejoignez-nous sur les réseaux sociaux pour rester à jour avec les dernières actualités !</p>
         
@@ -819,17 +1163,6 @@
           </a>
         </div>
       </div>
-
-
-      <!--Nouveautées-->
-
-      <div id="nouveautes" class="tab-content">
-        <h2>↶ Les nouveautés ! ↷</h2>
-          <div id="doc-blockhaus" class="cartes-section active">
-            <iframe src="https://docs.google.com/document/d/1TTZqbkpq91dQOEN0viWwVWYkRpcsjmQ-pJwc-ZSGh54/edit?usp=sharing"></iframe>
-          </div>
-      </div>
-
 
 
       <!--Nouveautées-->
@@ -924,52 +1257,7 @@
   </script>
 
 
-<!-- POPUP CONDITIONS -->
 
-
-  <div id="popup-conditions" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.3s ease; backdrop-filter: blur(10px);">
-    <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); width: 90%; max-width: 650px; height: 70vh; display: flex; flex-direction: column; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); overflow: hidden;">
-      <div style="padding: 1.5rem 2rem; overflow-y: auto; flex: 1; color: #1d1d1f;">
-        <h2 style="font-size: 1.8rem; font-weight: 700; margin: 0 0 1rem 0; color: #1d1d1f;">Conditions d'utilisation</h2>
-      <p><strong>1. Objet du site</strong><br>
-      Le site Les Blockhaus Lyssois a pour vocation de partager des informations historiques et documentaires sur les blockhaus présents à Lys-lez-Lannoy et dans ses environs. Les ressources fournies (cartes, documents, photos, etc.) sont destinées à un usage éducatif et informatif uniquement.</p>
-
-      <p><strong>2. Propriété intellectuelle</strong><br>
-      Les photos sont interdites à la reproduction.<br>
-      Il est interdit de reproduire, copier, modifier, diffuser ou exploiter ces contenus sans autorisation écrite préalable.</p>
-
-      <p><strong>3. Utilisation des cartes</strong><br>
-      Les cartes fournies ont pour seul but de localiser des blockhaus à des fins de recherche, de mémoire ou de curiosité historique.<br><br>
-      L'utilisateur s'engage à ne pas utiliser ces cartes :<br>
-      - À des fins illégales (ex. : intrusion, vandalisme, vol)<br>
-      - Pour accéder à des propriétés privées sans autorisation<br>
-      - Pour causer des perturbations ou des nuisances<br><br>
-      Le groupe Les Blockhaus Lyssois décline toute responsabilité en cas de comportement inapproprié, d'accident ou de violation de la loi.</p>
-
-      <p><strong>4. Respect de la propriété privée</strong><br>
-      Certains blockhaus sont situés sur des terrains privés. Il est strictement interdit d’y accéder sans l’accord explicite du propriétaire. Le respect de la vie privée des riverains et des règles de droit est une priorité.</p>
-
-      <p><strong>5. Sécurité et responsabilité</strong><br>
-      Toute exploration sur le terrain reste à l’initiative de l’utilisateur.<br>
-      Les Blockhaus Lyssois n’encouragent pas l’exploration physique de ces lieux. En cas d’accident ou d’incident, le site et ses administrateurs ne pourront en aucun cas être tenus responsables.</p>
-
-      <p><strong>6. Données personnelles</strong><br>
-      Le formulaire de contact peut recueillir des données personnelles (adresse email). Celles-ci ne seront jamais partagées ou revendues, et ne serviront qu’à répondre aux demandes reçues.</p>
-
-      <p><strong>7. Acceptation des conditions</strong><br>
-      En accédant à ce site, vous reconnaissez avoir lu, compris et accepté les présentes conditions d'utilisation.</p>
-      </div>
-      <div style="padding: 1.5rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.4); background: rgba(255, 255, 255, 0.3);">
-        <label style="display: block; margin-bottom: 0.75rem; color: #1d1d1f; font-weight: 500;">
-          <input type="checkbox" id="accept-checkbox" style="cursor: pointer; margin-right: 0.5rem;" />
-          J'ai lu et j'accepte les conditions d'utilisation
-        </label>
-        <button id="continue-button" disabled style="width: 100%; padding: 0.75rem; background: rgba(0, 122, 255, 0.5); backdrop-filter: blur(20px); color: white; border: none; border-radius: 12px; font-size: 1rem; cursor: not-allowed; font-weight: 600; transition: all 0.3s ease;">
-          Continuer
-        </button>
-      </div>
-    </div>
-  </div>
 
   <script>
     function showTab(tabId) {
