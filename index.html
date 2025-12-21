@@ -1131,7 +1131,8 @@
       <div id="cartes" class="tab-content">
         <div class="cartes-menu">
           <button onclick="showCarteSection('intro')">Comment utiliser nos cartes ?</button>
-          <button onclick="showCarteSection('sf-lille')">Secteur Fortifié de Lille</button>
+          <button onclick="showCarteSection('sf-lille')">Secteur Fortifié de Lille (détaillée)</button>
+          <button onclick="showCarteSection('sf-lille-simplifiée')">Secteur Fortifié de Lille (simplifiée)</button>
           <button onclick="showCarteSection('inventaire-sfl')">Inventaire du Secteur Fortifié de Lille</button>
           <!--<button onclick="showCarteSection('lys-lez-lannoy')">Proximité Lys Lez Lannoy</button>-->
          
@@ -1142,8 +1143,13 @@
           </div>
 
           <div id="sf-lille" class="cartes-section">
+            <p>Carte complète du Secteur Fortifié de Lille</p>
+            <iframe src="https://earth.google.com/earth/d/1DS-_KW_HaaLBEMzQVbN8XJyOlxAXzmBk?usp=sharing" width="640" height="480"></iframe>
+          </div>
+
+          <div id="sf-lille-simplifiée" class="cartes-section">
             <p>Carte simplifiée du Secteur Fortifié de Lille</p>
-            <iframe style="width: 50%; height: 1500px; border: 0;" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/fr/map/carte-du-secteur-fortifie-de-lille-simplifie_1335480#15/50.6972/3.2456"></iframe>
+            <iframe style="width: 100%; height: 1500px; border: 0;" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/fr/map/carte-du-secteur-fortifie-de-lille-simplifie_1335480#15/50.6972/3.2456"></iframe>
           </div>
 
           <div id="lys-lez-lannoy" class="cartes-section">
@@ -1352,6 +1358,7 @@
 
 </body>
 </html>
+
 
 
 
