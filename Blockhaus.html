@@ -134,8 +134,11 @@ body {
 <div id="blockhaus" class="section" style="display:block;">
     <h2>Les Blockhaus</h2>
     <div class="search-bar">
-        <div class="search-bar">
     <input type="text" id="searchInput" onkeyup="searchBlockhaus()" placeholder="Rechercher un blockhaus...">
+</div>
+
+<!-- Conteneur pour les résultats -->
+<div id="searchResults" class="block-list" style="text-align: center;"></div>
 </div>
 <!-- Conteneur pour afficher les résultats filtrés -->
 <div id="searchResults" class="block-list" style="text-align: center;"></div>
@@ -278,7 +281,16 @@ function searchBlockhaus() {
     // Vider les résultats précédents
     resultsContainer.innerHTML = "";
 
-    if (input === "") return; // Si vide, ne rien afficher
+    if (input === "") {
+        // Si le champ est vide, afficher la liste complète et masquer les résultats
+        document.getElementById("blockhausList").style.display = "block";
+        resultsContainer.style.display = "none";
+        return;
+    }
+
+    // Masquer la liste complète pendant la recherche
+    document.getElementById("blockhausList").style.display = "none";
+    resultsContainer.style.display = "block";
 
     // Ajouter uniquement les liens qui correspondent
     for (let i = 0; i < links.length; i++) {
@@ -290,9 +302,11 @@ function searchBlockhaus() {
     }
 }
 
+
 </script>
 </body>
 </html>
+
 
 
 
