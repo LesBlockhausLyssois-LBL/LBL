@@ -134,7 +134,11 @@ body {
 <div id="blockhaus" class="section" style="display:block;">
     <h2>Les Blockhaus</h2>
     <div class="search-bar">
-        <input type="text" id="searchInput" onkeyup="searchBlockhaus()" placeholder="Rechercher un blockhaus...">
+        <div class="search-bar">
+    <input type="text" id="searchInput" onkeyup="searchBlockhaus()" placeholder="Rechercher un blockhaus...">
+</div>
+<!-- Conteneur pour afficher les résultats filtrés -->
+<div id="searchResults" class="block-list" style="text-align: center;"></div>
     </div>
     <div class="block-list" id="blockhausList" style="text-align: center;">
         <a href="blockhaus/BEF705.html" target="_blank">Pillbox de Cohem Nord (BEF 705) (Lys Lez Lannoy)</a><br>
@@ -267,17 +271,29 @@ function showSection(sectionId, button) {
 }
 
 function searchBlockhaus() {
-    let input = document.getElementById("searchInput");
-    let filter = input.value.toLowerCase();
+    let input = document.getElementById("searchInput").value.toLowerCase();
     let links = document.getElementById("blockhausList").getElementsByTagName("a");
+    let resultsContainer = document.getElementById("searchResults");
+
+    // Vider les résultats précédents
+    resultsContainer.innerHTML = "";
+
+    if (input === "") return; // Si vide, ne rien afficher
+
+    // Ajouter uniquement les liens qui correspondent
     for (let i = 0; i < links.length; i++) {
         let txtValue = links[i].textContent || links[i].innerText;
-        links[i].style.display = txtValue.toLowerCase().includes(filter) ? "" : "none";
+        if (txtValue.toLowerCase().includes(input)) {
+            let clone = links[i].cloneNode(true);
+            resultsContainer.appendChild(clone);
+        }
     }
 }
+
 </script>
 </body>
 </html>
+
 
 
 
