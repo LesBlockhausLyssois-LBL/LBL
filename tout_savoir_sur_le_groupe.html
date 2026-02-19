@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/Y2g29xsg/Design-sans-titre-(30).png" />
     <script src="mobile-detect.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +8,40 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url("background4.webp");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-}
-</style>
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("background4.webp");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* Bouton discret mentions légales */
+        .mentions-btn {
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 10px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+            transition: all 0.2s ease;
+        }
+
+        .mentions-btn:hover {
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+        }
+    </style>
 </head>
+
 <body>
     <aside class="sidebar">
-  </aside>
+    </aside>
     <script src="navigation.js"></script>
 
     <div id="tout_savoir_sur_le_groupe">
@@ -38,9 +58,12 @@
           <strong>Partage des connaissances :</strong> faire découvrir l'histoire des blockhaus à un public large, des passionnés d'histoire aux simples curieux.
         </p>
         <p><strong>Rejoignez "Les Blockhaus Lyssois"</strong> pour partager votre passion, contribuer à la sauvegarde de notre histoire et découvrir ensemble les secrets de ces fascinantes constructions !</p>
-
     </div>
-</body>
 
+    <!-- Bouton mentions légales -->
+    <a href="mentionslegales.html" class="mentions-btn">Mentions légales</a>
+
+</body>
 </html>
+
 
