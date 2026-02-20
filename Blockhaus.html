@@ -11,6 +11,7 @@
 <title>Cartes et Documents - LesBlockhausLyssois</title>
 <link rel="stylesheet" href="style.css">
 <script src="mobile-detect.js"></script>
+
 <style>
 body {
     margin: 0;
@@ -20,20 +21,20 @@ body {
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
+    color: #fff; /* TEXTE EN BLANC */
 }
-
 
 /* SUPPRIMER LA BARRE BLANCHE DERRIERE LES BOUTONS */
 .top-buttons {
-    background-color: transparent !important; /* fond totalement transparent */
+    background-color: transparent !important;
     position: relative;
-    z-index: 2; /* au-dessus de l'image de fond */
-    padding: 0; /* enlever les marges/blocs blancs éventuels */
+    z-index: 2;
+    padding: 0;
 }
 
 /* BOUTONS STANDARDS */
 .top-buttons button {
-    background-color: #007bff; /* couleur des boutons */
+    background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -53,24 +54,6 @@ body {
 .top-buttons button.active {
     background-color: #004a99;
 }
-
-/* RESPONSIVE MOBILE */
-@media (max-width: 768px) {
-    .top-buttons button {
-        padding: 7px 12px;
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 480px) {
-    .top-buttons button {
-        padding: 6px 10px;
-        font-size: 12px;
-    }
-}
-
-
-
 
 /* SECTIONS */
 .section {
@@ -92,24 +75,23 @@ body {
     border: 1px solid #ccc;
 }
 
-/* LIENS DANS LES LISTES */
+/* LIENS EN BLANC */
 .block-list a {
     display: block;
     margin: 5px 0;
-    color: #000; /* liens noirs */
+    color: #fff; /* LIENS EN BLANC */
     text-decoration: none;
     font-family: 'Merriweather', serif;
-    background-color: transparent; /* pas de fond */
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.6); /* légère ombre pour lisibilité */
+    background-color: transparent;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* ombre sombre pour lisibilité */
     transition: color 0.2s, text-shadow 0.2s;
 }
 
 .block-list a:hover {
-    color: #007bff; /* bleu au survol */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    color: #cce5ff; /* léger bleu clair au survol */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
     text-decoration: underline;
 }
-
 
 /* Carte Google Maps responsive */
 .map-container {
@@ -129,7 +111,7 @@ body {
     border: none;
 }
 
-/* Responsive boutons */
+/* Responsive */
 @media (max-width: 768px) {
     .top-buttons button {
         padding: 7px 12px;
@@ -337,6 +319,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
