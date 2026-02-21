@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/Y2g29xsg/Design-sans-titre-(30).png" />
+    <script src="mobile-detect.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fossé Antichars - Lys-lez-Lannoy | LesBlockhausLyssois</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("background4.webp");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.95);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        p {
+            line-height: 1.5;
+            text-align: justify;
+            font-size: 1em;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 8px;
+        }
+
+        /* Bouton retour mobile-friendly */
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Sidebar adaptée mobile (si tu utilises navigation.js) */
+        .sidebar {
+            display: none; /* on peut le réactiver si tu veux un menu mobile */
+        }
+
+        /* Responsive text adjustment */
+        @media (min-width: 600px) {
+            h1 { font-size: 2em; }
+            p { font-size: 1.1em; }
+            button { width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar"></aside>
+    <script src="navigation.js"></script>
+
+    <div class="content">
+
+        <a href="https://lesblockhauslyssois.fr/aceuilcartes.html">
+            <button>⬅ Retour à l'accueil</button>
+        </a>
+
+        <h1>Carte des fossés anti-chars et des blockhaus français de Cysoing à Bachy.</h1>
+
+        <!-- Image responsive -->
+        <img src="photos/fossé anti-chars cysoing.png" 
+             alt="Fossé antichars Cysoing">
+        <p>Source : livre "building the gort line" page 175 <p/>
+    </div>
+
+</body>
+</html>
