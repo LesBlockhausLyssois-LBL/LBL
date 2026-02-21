@@ -20,69 +20,60 @@
         }
 
         .content {
-            background-color: rgba(255, 255, 255, 0.9);
-            margin: 40px auto;
-            padding: 30px;
-            max-width: 900px;
+            background-color: rgba(255, 255, 255, 0.95);
+            margin: 20px;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
 
         h1 {
             text-align: center;
+            font-size: 1.5em;
         }
 
         p {
-            line-height: 1.6;
+            line-height: 1.5;
             text-align: justify;
+            font-size: 1em;
         }
 
         img {
             width: 100%;
-            max-width: 800px;
+            height: auto;
             display: block;
-            margin: 20px auto;
+            margin: 15px auto;
             border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
         }
 
-        /* Zoom avec déplacement */
-        .zoomable.zoomed {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(3); /* zoom x3 */
-            z-index: 9999;
-            max-width: none;
-            cursor: grab;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
-            border-radius: 10px;
-        }
-
-        /* Fond sombre derrière l'image zoomée */
-        .zoomable.zoomed::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: -1;
-        }
-
+        /* Bouton retour mobile-friendly */
         button {
-            padding: 8px 15px;
+            width: 100%;
+            padding: 12px;
             margin-bottom: 15px;
             background-color: #333;
             color: white;
             border: none;
             border-radius: 6px;
-            cursor: pointer;
             font-weight: bold;
+            cursor: pointer;
+            font-size: 1em;
         }
 
         button:hover {
             background-color: #555;
+        }
+
+        /* Sidebar adaptée mobile (si tu utilises navigation.js) */
+        .sidebar {
+            display: none; /* on peut le réactiver si tu veux un menu mobile */
+        }
+
+        /* Responsive text adjustment */
+        @media (min-width: 600px) {
+            h1 { font-size: 2em; }
+            p { font-size: 1.1em; }
+            button { width: auto; }
         }
     </style>
 </head>
@@ -99,54 +90,16 @@
 
         <h1>Carte des fossés anti-chars et des blockhaus français de Lys Lez Lannoy à Forest-sur-Marque.</h1>
 
+        <!-- Image responsive -->
         <img src="photos/fosseanti-charslyslezlannoy.png" 
-             alt="Fossé antichars Lys-lez-Lannoy" 
-             class="zoomable">
+             alt="Fossé antichars Lys-lez-Lannoy">
+
+        <p>
+            Le fossé antichars de Lys-lez-Lannoy est un vestige militaire historique. 
+            Il permet de comprendre l’organisation défensive de la région et l’importance stratégique pendant la Seconde Guerre mondiale.
+        </p>
 
     </div>
-
-    <script>
-        // Zoom et déplacement
-        const imgs = document.querySelectorAll('.zoomable');
-
-        imgs.forEach(img => {
-            let isDragging = false;
-            let startX, startY, currentX = 0, currentY = 0;
-
-            img.addEventListener('click', () => {
-                img.classList.toggle('zoomed');
-
-                // réinitialiser la position si on dé-zoome
-                if (!img.classList.contains('zoomed')) {
-                    img.style.transform = 'translate(-50%, -50%) scale(1)';
-                    currentX = 0;
-                    currentY = 0;
-                }
-            });
-
-            img.addEventListener('mousedown', e => {
-                if (!img.classList.contains('zoomed')) return;
-                isDragging = true;
-                startX = e.clientX - currentX;
-                startY = e.clientY - currentY;
-                img.style.cursor = 'grabbing';
-                e.preventDefault();
-            });
-
-            document.addEventListener('mousemove', e => {
-                if (!isDragging) return;
-                currentX = e.clientX - startX;
-                currentY = e.clientY - startY;
-                img.style.transform = `translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px)) scale(3)`;
-            });
-
-            document.addEventListener('mouseup', () => {
-                if (!isDragging) return;
-                isDragging = false;
-                img.style.cursor = 'grab';
-            });
-        });
-    </script>
 
 </body>
 </html>
