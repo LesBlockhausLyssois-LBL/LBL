@@ -43,24 +43,25 @@
             display: block;
             margin: 20px auto;
             border-radius: 8px;
-            cursor: pointer; /* indique qu'on peut cliquer */
+            cursor: pointer;
             transition: transform 0.3s ease;
         }
 
-        /* Style du zoom */
-        img.zoomable.zoomed {
+        /* Zoom avec déplacement */
+        .zoomable.zoomed {
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(2); /* zoom x2 */
+            transform: translate(-50%, -50%) scale(3); /* zoom x3 */
             z-index: 9999;
             max-width: none;
+            cursor: grab;
             box-shadow: 0 0 30px rgba(0,0,0,0.8);
             border-radius: 10px;
         }
 
         /* Fond sombre derrière l'image zoomée */
-        img.zoomable.zoomed::before {
+        .zoomable.zoomed::before {
             content: "";
             position: fixed;
             top: 0; left: 0;
@@ -69,7 +70,6 @@
             z-index: -1;
         }
 
-        /* Bouton retour stylé */
         button {
             padding: 8px 15px;
             margin-bottom: 15px;
@@ -84,7 +84,6 @@
         button:hover {
             background-color: #555;
         }
-
     </style>
 </head>
 <body>
@@ -100,7 +99,6 @@
 
         <h1>Carte des fossés anti-chars et des blockhaus français de Lys Lez Lannoy à Forest-sur-Marque.</h1>
 
-        <!-- Image à remplacer par ta propre photo -->
         <img src="photos/fosseanti-charslyslezlannoy.png" 
              alt="Fossé antichars Lys-lez-Lannoy" 
              class="zoomable">
@@ -108,10 +106,44 @@
     </div>
 
     <script>
-        // Zoom au clic
-        document.querySelectorAll('.zoomable').forEach(img => {
+        // Zoom et déplacement
+        const imgs = document.querySelectorAll('.zoomable');
+
+        imgs.forEach(img => {
+            let isDragging = false;
+            let startX, startY, currentX = 0, currentY = 0;
+
             img.addEventListener('click', () => {
                 img.classList.toggle('zoomed');
+
+                // réinitialiser la position si on dé-zoome
+                if (!img.classList.contains('zoomed')) {
+                    img.style.transform = 'translate(-50%, -50%) scale(1)';
+                    currentX = 0;
+                    currentY = 0;
+                }
+            });
+
+            img.addEventListener('mousedown', e => {
+                if (!img.classList.contains('zoomed')) return;
+                isDragging = true;
+                startX = e.clientX - currentX;
+                startY = e.clientY - currentY;
+                img.style.cursor = 'grabbing';
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', e => {
+                if (!isDragging) return;
+                currentX = e.clientX - startX;
+                currentY = e.clientY - startY;
+                img.style.transform = `translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px)) scale(3)`;
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                img.style.cursor = 'grab';
             });
         });
     </script>
