@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos membres impliqués - LesBlockhausLyssois</title>
 
+    <!-- On charge le JS proprement -->
+    <script src="navigation.js" defer></script>
+
     <style>
         body {
             margin: 0;
@@ -13,7 +16,27 @@
             background-color: #f4f4f4;
         }
 
-        /* Conteneur centré */
+        /* Sidebar (optionnel pour test visuel) */
+        #sidebar {
+            width: 200px;
+            position: fixed;
+            height: 100%;
+            background: #2c2c2c;
+            padding-top: 20px;
+        }
+
+        #sidebar a {
+            display: block;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            background: #444;
+        }
+
+        /* Contenu principal */
         .page-container {
             max-width: 850px;
             margin: 40px auto;
@@ -25,7 +48,6 @@
             margin-bottom: 40px;
         }
 
-        /* Bloc membre style tableau */
         .member-item {
             display: flex;
             align-items: center;
@@ -37,13 +59,11 @@
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
         }
 
-        /* Image réduite */
         .member-item img {
             width: 65px;
             height: 65px;
             border-radius: 50%;
             object-fit: cover;
-            flex-shrink: 0;
         }
 
         .member-info .name {
@@ -56,17 +76,13 @@
             color: #666;
             margin: 5px 0;
         }
-
-        .member-info .description {
-            font-size: 14px;
-        }
     </style>
 </head>
 
 <body>
-    <aside class="sidebar">
-  </aside>
-    <script src="navigation.js"></script>
+
+<!-- Sidebar contrôlée par JS -->
+<aside id="sidebar"></aside>
 
 <div class="page-container">
 
