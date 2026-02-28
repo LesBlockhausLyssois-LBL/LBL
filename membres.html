@@ -2,57 +2,107 @@
 <html lang="fr">
 <head>
     <link rel="icon" type="image/png" href="https://i.postimg.cc/Y2g29xsg/Design-sans-titre-(30).png" />
-    <script src="mobile-detect.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos membres impliqués - LesBlockhausLyssois</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Conteneur centré */
+        .page-container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Bloc membre style tableau */
+        .member-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #ffffff;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Image réduite */
+        .member-item img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .member-info .name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .member-info .role {
+            font-style: italic;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .member-info .description {
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
-    <aside class="sidebar"></aside>
-    <script src="navigation.js"></script>
 
-    <div class="page-container">
-        <h1>Nos membres impliqués</h1>
+<div class="page-container">
 
-        <div class="members-container">
+    <h1>Nos membres impliqués</h1>
 
-            <div class="member-item">
-                <img src="photos/erwan.jpeg" alt="Photo de profil">
-                <div class="member-info">
-                    <div class="name">Erwan Merlin</div>
-                    <div class="role">Fondateur</div>
-                    <div class="description">
-                        Recherche historique, cartographie et photographe.
-                    </div>
-                </div>
+    <div class="member-item">
+        <img src="photos/erwan.jpeg" alt="Photo de profil">
+        <div class="member-info">
+            <div class="name">Erwan Merlin</div>
+            <div class="role">Fondateur</div>
+            <div class="description">
+                Recherche historique, cartographie et photographe.
             </div>
-
-            <div class="member-item">
-                <img src="photos/icon.png" alt="Photo de profil">
-                <div class="member-info">
-                    <div class="name">Gael Muller</div>
-                    <div class="role">Informaticien</div>
-                    <div class="description">
-                        Gestion du site.
-                    </div>
-                </div>
-            </div>
-
-            <div class="member-item">
-                <img src="photos/icon.png" alt="Photo de profil">
-                <div class="member-info">
-                    <div class="name">Jean Michel Wauquier</div>
-                    <div class="role">Responsable Communication</div>
-                    <div class="description">
-                        Photographies des blockhaus et participation aux relevés terrain.
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
+
+    <div class="member-item">
+        <img src="photos/icon.png" alt="Photo de profil">
+        <div class="member-info">
+            <div class="name">Gael Muller</div>
+            <div class="role">Informaticien</div>
+            <div class="description">
+                Gestion du site.
+            </div>
+        </div>
+    </div>
+
+    <div class="member-item">
+        <img src="photos/icon.png" alt="Photo de profil">
+        <div class="member-info">
+            <div class="name">Jean Michel Wauquier</div>
+            <div class="role">Responsable Communication</div>
+            <div class="description">
+                Photographies des blockhaus et participation aux relevés terrain.
+            </div>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
