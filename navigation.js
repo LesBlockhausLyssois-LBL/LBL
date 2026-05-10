@@ -22,7 +22,7 @@ async function generateSidebar() {
         // Menu principal
         html += '<div class="menu-wrap">';
         html += '<div class="menu-resources">';
-        html += '<h3>Ressources</h3>';
+
 
         // Génération des liens de ressources
         data.ressources.forEach(item => {
