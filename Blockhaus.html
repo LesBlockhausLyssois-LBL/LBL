@@ -367,20 +367,46 @@ const fonds = [
     "fond/fond15.jpg"
 ];
 
-let precedent = localStorage.getItem("dernierFond");
-let disponible = fonds.filter(f => f !== precedent);
+<script>
+window.addEventListener("load", () => {
 
-let fondAleatoire =
-    disponible[Math.floor(Math.random() * disponible.length)];
+    const fonds = [
+        "fond/fond1.jpg",
+        "fond/fond2.jpg",
+        "fond/fond3.jpg",
+        "fond/fond4.jpg",
+        "fond/fond5.jpg",
+        "fond/fond6.jpg",
+        "fond/fond7.jpg",
+        "fond/fond8.jpg",
+        "fond/fond9.jpg",
+        "fond/fond10.jpg",
+        "fond/fond11.jpg",
+        "fond/fond12.jpg",
+        "fond/fond13.jpg",
+        "fond/fond14.jpg",
+        "fond/fond15.jpg"
+    ];
 
-localStorage.setItem("dernierFond", fondAleatoire);
+    let precedent = localStorage.getItem("dernierFond");
+    let disponible = fonds.filter(f => f !== precedent);
 
-document.body.style.backgroundImage =
-    `linear-gradient(
-        rgba(189,183,168,0.75),
-        rgba(189,183,168,0.75)
-    ),
-    url('${fondAleatoire}')`;
+    let fondAleatoire =
+        disponible[Math.floor(Math.random() * disponible.length)];
+
+    localStorage.setItem("dernierFond", fondAleatoire);
+
+    document.body.style.backgroundImage =
+        `linear-gradient(
+            rgba(189,183,168,0.75),
+            rgba(189,183,168,0.75)
+        ),
+        url('${fondAleatoire}')`;
+
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundAttachment = "fixed";
+});
 </script>
 
 </body>
