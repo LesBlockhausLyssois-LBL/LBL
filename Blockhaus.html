@@ -16,16 +16,14 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-
-    background-color: #bdb7a8;
+    background-image: url("background4.webp");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
-
     min-height: 100vh;
-    color: #000;
+    color: #000; /* TEXTE EN NOIR */
 }
+
 /* SUPPRIMER LA BARRE BLANCHE DERRIERE LES BOUTONS */
 .top-buttons {
     background-color: transparent !important;
@@ -151,10 +149,9 @@ body {
 <div id="blockhaus" class="section" style="display:block;">
     <h2>Les Blockhaus</h2>
 
-    
     <!-- Barre de recherche -->
     <div class="search-bar">
-        <input type="text" id="searchInput" onkeyup="searchBlockhaus()" placeholder="Rechercher un blockhaus ou une ville...">
+        <input type="text" id="searchInput" onkeyup="searchBlockhaus()" placeholder="Rechercher un blockhaus...">
         <div id="searchResults" class="block-list" style="text-align:center; display:none;"></div>
     </div>
 
@@ -162,13 +159,14 @@ body {
     <div class="block-list" id="blockhausList" style="text-align:center;">
         <a href="blockhaus/BEF705.html" target="_blank">Pillbox de Cohem Nord (BEF 705) (Lys Lez Lannoy)</a><br>
         <a href="blockhaus/BEF347.html" target="_blank">Pillbox de Cohem Centre (BEF 347) (Lys Lez Lannoy)</a><br>
+        <a href="blockhaus/BEF318.html" target="_blank">Pillbox du Bon Poste Ouest (BEF 318) (Lys Lez Lannoy)</a><br>
         <a href="blockhaus/BEF339.html" target="_blank">Pillbox de Lys Lez Lannoy (BEF 339) (Lys Lez Lannoy)</a><br>
-        <a href="blockhaus/BEF318.html" target="_blank">Pillbox de la Chapelle Madamme (BEF 318) (Lys Lez Lannoy)</a><br>
+        <a href="blockhaus/BEF697.html" target="_blank">Pillbox de la Chapelle Madamme (BEF 697) (Lys Lez Lannoy)</a><br>
         <a href="blockhaus/B293.html" target="_blank">Bloc du Fresnoy (B293) (Lys Lez Lannoy)</a><br>
         <a href="blockhaus/B294.html" target="_blank">Bloc de Lys Lez Lannoy (B294) (Lys Lez Lannoy)</a><br>
         <a href="blockhaus/BEF338.html" target="_blank">Pillbox du Vert Pré (BEF 338) (Lys Lez Lannoy)</a><br>
+        <a href="blockhaus/BEF342.html" target="_blank">Pillbox du Bon Poste Est (BEF 342) (Lys Lez Lannoy)</a><br>
         <a href="blockhaus/BEF706.html" target="_blank">Pillbox de Cohem Sud (BEF 706) (Lys Lez Lannoy)</a><br>
-        <a href="blockhaus/B242.html" target="_blank">Observatoire de Wervicq Nord (B242) (Wervicq)</a><br>
         <a href="blockhaus/B250.html" target="_blank">Bloc du Nouveau Monde(B250) (Halluin)</a><br>
         <a href="blockhaus/B276.html" target="_blank">Bloc de la croix rouge sud(B276) (Wattrelos)</a><br>
         <a href="blockhaus/B284.html" target="_blank">Bloc de Beaulieu Nord (B284) (Wattrelos)</a><br>
@@ -176,7 +174,6 @@ body {
         <a href="blockhaus/B286.html" target="_blank">Bloc de Grimonpont Nord (B286) (Wattrelos)</a><br>
         <a href="blockhaus/B287.html" target="_blank">Bloc de Grimonpont Sud (B287) (Wattrelos)</a><br>
         <a href="blockhaus/B295.html" target="_blank">Bloc de Toufflers Nord (B295) (Toufflers)</a><br>
-        <a href="blockhaus/BEF342.html" target="_blank">Pillbox du Bon Poste Est (BEF 342) (Toufflers)</a><br>
         <a href="blockhaus/B296.html" target="_blank">Bloc de la Chapelle Madame (B296) (Hem)</a><br>
         <a href="blockhaus/B298.html" target="_blank">Bloc du Vieux Sailly (B298) (Hem)</a><br>
         <a href="blockhaus/B299.html" target="_blank">Bloc de La Vallée (B299) (Hem)</a><br>
@@ -201,10 +198,8 @@ body {
         <a href="blockhaus/ermitage.html" target="_blank">Point d'appui de l'ermitage (Mouchin)</a><br>
         <a href="blockhaus/B349.html" target="_blank">Bloc Montury (B349) (Mouchin)</a><br>
         <a href="blockhaus/B353.html" target="_blank">Bloc de Mouchin Ouest (B353) (Mouchin)</a><br>
-        <a href="blockhaus/BEF575.html" target="_blank">Vehicle Shed (BEF 575) (Mouchin)</a><br>
         <a href="blockhaus/cuvesbeaulieu.html" target="_blank">Cuves pour canons de Beaulieu (Wattrelos)</a><br>
     </div>
-    <h2>Pour approfondir : <p><a href="acceuildoc.html" target="_blank">Cliquez ICI pour voir nos documents supplémentaires</a></p> </h2>
 </div>
 
 <!-- SECTION 2 : LES CARTES -->
@@ -217,9 +212,11 @@ body {
     <div class="map-container">
         <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1vQL4sZPDyJNzkY-vYmDtjlVqJtbn9eM&ehbc=2E312F"></iframe>
         </div>
-    <p><a href="sources.html" target="_blank">Nos sources cartographiques</a></p>
+    <p>Carte des constructions françaises de 1937 à 1939 : <a href="https://earth.google.com/earth/d/1UnQacaG_yp1bpwePSTSU7Psyo37KuEd5?usp=sharing" target="_blank">Voir la carte</a>(google earth).</p>
+    <p>Carte des constructions britanniques de 1939 à 1940 (ligne Gort) : <a href="https://earth.google.com/earth/d/1Mix8PSpl8umIjQgR1iYAXEvYebujH0K7?usp=sharing" target="_blank">Voir la carte</a>(google earth).</p>
+    <p>Carte des barrages de routes mis en place en 1939 : <a href="https://earth.google.com/earth/d/1zXNP-yVn4g4KJrkl4nfkQ3MfAWrdNOnY?usp=sharing" target="_blank">Voir la carte</a>(google earth).</p>
      </div>
-    
+    <p><a href="sources.html" target="_blank">Nos sources cartographiques</a></p>
 
 </div>
 
@@ -312,7 +309,6 @@ body {
     </div>
 </div>
 
-
 <script src="navigation.js"></script>
 <script>
 function showSection(sectionId, button) {
@@ -348,67 +344,7 @@ function searchBlockhaus() {
     }
     if (!found) resultsContainer.innerHTML = "<em>Aucun résultat trouvé.</em>";
 }
-    <script>
-const fonds = [
-    "fond/fond1.jpg",
-    "fond/fond2.jpg",
-    "fond/fond3.jpg",
-    "fond/fond4.jpg",
-    "fond/fond5.jpg",
-    "fond/fond6.jpg",
-    "fond/fond7.jpg",
-    "fond/fond8.jpg",
-    "fond/fond9.jpg",
-    "fond/fond10.jpg",
-    "fond/fond11.jpg",
-    "fond/fond12.jpg",
-    "fond/fond13.jpg",
-    "fond/fond14.jpg",
-    "fond/fond15.jpg"
-];
-
-<script>
-window.addEventListener("load", () => {
-
-    const fonds = [
-        "fond/fond1.jpg",
-        "fond/fond2.jpg",
-        "fond/fond3.jpg",
-        "fond/fond4.jpg",
-        "fond/fond5.jpg",
-        "fond/fond6.jpg",
-        "fond/fond7.jpg",
-        "fond/fond8.jpg",
-        "fond/fond9.jpg",
-        "fond/fond10.jpg",
-        "fond/fond11.jpg",
-        "fond/fond12.jpg",
-        "fond/fond13.jpg",
-        "fond/fond14.jpg",
-        "fond/fond15.jpg"
-    ];
-
-    let precedent = localStorage.getItem("dernierFond");
-    let disponible = fonds.filter(f => f !== precedent);
-
-    let fondAleatoire =
-        disponible[Math.floor(Math.random() * disponible.length)];
-
-    localStorage.setItem("dernierFond", fondAleatoire);
-
-    document.body.style.backgroundImage =
-        `linear-gradient(
-            rgba(189,183,168,0.75),
-            rgba(189,183,168,0.75)
-        ),
-        url('${fondAleatoire}')`;
-
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundAttachment = "fixed";
-});
 </script>
 
 </body>
 </html>
-
