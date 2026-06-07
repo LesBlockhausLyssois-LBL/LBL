@@ -9,29 +9,19 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-       body {
+      body {
     margin: 0;
     font-family: Arial, sans-serif;
 
-   
     background-color: #bdb7a8;
-
-    /* Ton image de fond */
-    background-image:
-        linear-gradient(
-            rgba(189,183,168,0.75),
-            rgba(189,183,168,0.75)
-        ),
-        url("background4.webp");
-
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 
     min-height: 100vh;
     color: #000;
 }
-
         /* Optionnel : liens visibles */
         #reseaux a {
             color: #000;
@@ -57,6 +47,76 @@
             <li><a href="https://www.instagram.com/les_blockhaus_lyssois/" target="_blank">Instagram</a></li>
         </ul>
     </div>
+    <script src="navigation.js"></script>
+<script>
+function showSection(sectionId, button) {
+    document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+    document.getElementById(sectionId).style.display = "block";
+    document.querySelectorAll(".top-buttons button").forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+}
+
+function searchBlockhaus() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let links = document.getElementById("blockhausList").getElementsByTagName("a");
+    let resultsContainer = document.getElementById("searchResults");
+
+    resultsContainer.innerHTML = "";
+
+    if (input === "") {
+        document.getElementById("blockhausList").style.display = "block";
+        resultsContainer.style.display = "none";
+        return;
+    }
+
+    document.getElementById("blockhausList").style.display = "none";
+    resultsContainer.style.display = "block";
+
+    let found = false;
+    for (let i = 0; i < links.length; i++) {
+        let txtValue = links[i].textContent || links[i].innerText;
+        if (txtValue.toLowerCase().includes(input)) {
+            resultsContainer.appendChild(links[i].cloneNode(true));
+            found = true;
+        }
+    }
+    if (!found) resultsContainer.innerHTML = "<em>Aucun résultat trouvé.</em>";
+}
+</script>
+<script>
+const fonds = [
+    "fond/fond1.jpg",
+    "fond/fond2.jpg",
+    "fond/fond3.jpg",
+    "fond/fond4.jpg",
+    "fond/fond5.jpg",
+    "fond/fond6.jpg",
+    "fond/fond7.jpg",
+    "fond/fond8.jpg",
+    "fond/fond9.jpg",
+    "fond/fond10.jpg",
+    "fond/fond11.jpg",
+    "fond/fond12.jpg",
+    "fond/fond13.jpg",
+    "fond/fond14.jpg",
+    "fond/fond15.jpg"
+];
+
+let precedent = localStorage.getItem("dernierFond");
+let disponible = fonds.filter(f => f !== precedent);
+
+let fondAleatoire =
+    disponible[Math.floor(Math.random() * disponible.length)];
+
+localStorage.setItem("dernierFond", fondAleatoire);
+
+document.body.style.backgroundImage =
+    `linear-gradient(
+        rgba(189,183,168,0.75),
+        rgba(189,183,168,0.75)
+    ),
+    url('${fondAleatoire}')`;
+</script>
 </body>
 </html>
 
