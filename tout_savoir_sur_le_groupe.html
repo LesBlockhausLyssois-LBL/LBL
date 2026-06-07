@@ -8,23 +8,14 @@
     <title>Tout savoir sur le groupe - LesBlockhausLyssois</title>
     <link rel="stylesheet" href="style.css">
     <style>
-       body {
+      body {
     margin: 0;
     font-family: Arial, sans-serif;
 
-   
     background-color: #bdb7a8;
-
-    /* Ton image de fond */
-    background-image:
-        linear-gradient(
-            rgba(189,183,168,0.75),
-            rgba(189,183,168,0.75)
-        ),
-        url("background4.webp");
-
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 
     min-height: 100vh;
@@ -82,6 +73,40 @@
     <a href="mentionslegales.html" class="mentions-btn">Mentions légales</a>
 
 </body>
+    <script>
+const fonds = [
+    "fond/fond1.jpg",
+    "fond/fond2.jpg",
+    "fond/fond3.jpg",
+    "fond/fond4.jpg",
+    "fond/fond5.jpg",
+    "fond/fond6.jpg",
+    "fond/fond7.jpg",
+    "fond/fond8.jpg",
+    "fond/fond9.jpg",
+    "fond/fond10.jpg",
+    "fond/fond11.jpg",
+    "fond/fond12.jpg",
+    "fond/fond13.jpg",
+    "fond/fond14.jpg",
+    "fond/fond15.jpg"
+];
+
+let precedent = localStorage.getItem("dernierFond");
+let disponible = fonds.filter(f => f !== precedent);
+
+let fondAleatoire =
+    disponible[Math.floor(Math.random() * disponible.length)];
+
+localStorage.setItem("dernierFond", fondAleatoire);
+
+document.body.style.backgroundImage =
+    `linear-gradient(
+        rgba(189,183,168,0.75),
+        rgba(189,183,168,0.75)
+    ),
+    url('${fondAleatoire}')`;
+</script>
 </html>
 
 
