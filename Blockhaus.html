@@ -129,6 +129,65 @@ body {
         font-size: 12px;
     }
 }
+/* SECTION DEFINITIONS */
+
+.definitions-gallery{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.definition-card{
+    background:rgba(255,255,255,0.85);
+    border-radius:12px;
+    overflow:hidden;
+    width:320px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    transition:transform 0.3s;
+}
+
+.definition-card:hover{
+    transform:translateY(-5px);
+}
+
+.definition-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.definition-card h3{
+    margin:15px 10px 10px;
+    text-align:center;
+    font-family:'Merriweather', serif;
+}
+
+.definition-card p{
+    padding:0 15px 20px;
+    text-align:center;
+    line-height:1.5;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .definitions-gallery{
+        gap:20px;
+        padding:10px;
+    }
+
+    .definition-card{
+        width:100%;
+        max-width:400px;
+    }
+
+    .definition-card img{
+        height:auto;
+    }
+}
 </style>
 </head>
 <body>
@@ -141,8 +200,7 @@ body {
 <div class="top-buttons">
     <button class="active" onclick="showSection('blockhaus', this)">Les blockhaus</button>
     <button onclick="showSection('cartes', this)">Cartes</button>
-    <button onclick="showSection('types', this)">Les types de blockhaus</button>
-    <button onclick="showSection('definitions', this)">Les définitions</button>
+    <button onclick="showSection('definitions', this)">Dico</button>
     <button onclick="window.open('https://lesblockhauslyssois-lbl.github.io/gps/', '_blank')">
     Autour de Moi (GPS)
 </button>
@@ -231,93 +289,32 @@ body {
     
 </div>
 
-<!-- SECTION 3 : TYPES DE BLOCKHAUS -->
-<div id="types" class="section">
-    <h2>Les Types de Blockhaus</h2>
-    <div class="block-list" style="text-align:center;">
-        <h3>Pillboxes BEF</h3>
-       <a href="https://docs.google.com/document/d/1llll5Zb6aNpB4pfpfdQSdt_djpSOUS_s3mYankAa218/edit?usp=sharing" target="_blank">Type U2</a><br>
 
-                <a href="https://docs.google.com/document/u/1/d/1kRvgvjZTbONi6NPUg7vEI_BSDN-SCEZBRCdWyJo-KMk/edit" target="_blank">Type U1</a><br>
-
-                <a href="https://docs.google.com/document/u/1/d/1c0Y05Qhs-YTnT4tmjxYsD8zgQiGfOvxDK9tLkf8xCR0/edit" target="_blank">Type W5</a><br>
-
-                <a href="https://docs.google.com/document/u/1/d/11AM5oKqb1bjAHbwas8xLqLsXWvKQ28Uu4ETp2OFmHwQ/edit" target="_blank">Type W1</a><br>
-
-                <a href="https://docs.google.com/document/u/1/d/1UsVGD9Hu7AaGy9mkbGxit2K9KrGeveZLgzhYzMK9PKw/edit" target="_blank">Type R</a><br>
-
-                <a href="https://docs.google.com/document/u/1/d/1ZJBHO1n4KuPE6Hr-VWFIEbf_kz2amndXrXjp0ZT-G7E/edit" target="_blank">Type W4</a><br>
-
-                <a href="https://docs.google.com/document/u/1/d/1a5jp4yr-eI1puxmQBzsQDFcnPhhQHpFJDaTIgd_xtl4/edit" target="_blank">Type W3</a><br>
-
-                <a href="https://docs.google.com/document/d/1VIOuLLzw6dXIdvyk7938khAFlWRJJdmqCQyyc6SCsBc/edit?usp=sharing" target="_blank">Type W2</a><br>
-
-                <a href="https://docs.google.com/document/d/1JWCZHHd4iELIaJIBl_FtkNVaxUECOXaOyenKdpyrHL4/edit?usp=sharing" target="_blank">Casemate d’artillerie légère</a>
-
-                <a href="https://docs.google.com/document/u/1/d/1dB8UHT0NL_0dcfGLEpJKImQSduq0DgWl8C0oF5Mcu4s/edit" target="_blank">Type A1</a>
-
-        <h3>Blocs Français</h3>
-                <a href="https://docs.google.com/document/d/1Ja8lQrttk2tEAlG9j4bX96Sz2eB5JpW0YcRGu-Naw6g/edit?usp=sharing" target="_blank">Type N1F</a><br>
-
-                <a href="https://docs.google.com/document/d/1pGxqboH1dQv_iFVe9DcI-gcwtFKOwbtRFM4YEZs3lmg/edit?usp=sharing" target="_blank">Type N2F</a><br>
-
-                <a href="https://docs.google.com/document/d/1nrVBizDU3VjK1u7sjwFt-e_QeOj4PLwUFPhzoWCBBe0/edit?usp=sharing" target="_blank">Type N1 D/G</a><br>
-
-                <a href="https://docs.google.com/document/d/1N5tF9yzjXFxrENBYjiK2HVtoaDV6H4eF5IAdRg-_xwU/edit?usp=sharing" target="_blank">Type N2 D/G</a><br>
-
-                <a href="https://docs.google.com/document/d/1_wnvW95kMe7BgItAwNOJc27_vJjVvRxwbA8rMCrj0rc/edit?usp=sharing" target="_blank">Type Da</a><br>
-
-                <a href="https://docs.google.com/document/d/1hMt7KZMG6wP6CJ3inCirqMofc_iWrwtNVc6ySd34UPg/edit?usp=sharing" target="_blank">Type Db</a><br>
-
-                <a href="https://docs.google.com/document/d/1u1xtQuljMka8OA7j8oqUgniHUAHqEBUvAucDYV7Y62w/edit?usp=sharing" target="_blank">Type Dc</a><br>
-
-                <a href="https://docs.google.com/document/d/1J1N5bttcrb0KyAvJV08e9ZHfD2uJ8NJNmNbdxnbN0uI/edit?usp=sharing" target="_blank">Type Dd</a><br>
-
-                <a href="https://docs.google.com/document/d/1xud4UGdao1R4RBdS2HGVrIrRT3wY_wfyt_PEKlXQWO4/edit?usp=sharing" target="_blank">Type DSD/DSG</a><br>
-
-                <a href="https://docs.google.com/document/d/1bErTsMBCzs5VjOjYFjiLhPKiLo2EIneCZzrS82Fwcfg/edit?usp=sharing" target="_blank">Type GSD/GSG</a><br>
-
-                <a href="https://docs.google.com/document/d/1FH1naPucrYEEOilKIzH3P0qwYRTpKP2xI8_vG4U6sDY/edit?usp=sharing" target="_blank">Type G1</a><br>
-
-                <a href="https://docs.google.com/document/d/1kgV-ABfIUdR9DcTdQE-tbK9r0xhEqhZ9mX9lm8K-qyw/edit?usp=sharing" target="_blank">Type G2</a><br>
-
-                <a href="https://docs.google.com/document/d/1bGcR5rF7dGMDTKxYUhsts-5PVVF_CptrEUWxYxKXE6k/edit?usp=sharing" target="_blank">Type G3</a><br>
-
-                <a href="https://docs.google.com/document/d/1biilMp_DwME364ecL3q99x8poBZNNGYvmENrvPXjUMs/edit?usp=sharing" target="_blank">Type G4</a><br>
-
-                <a href="https://docs.google.com/document/d/1qSjtDKCaAu3GCD5wWaXhr5hZ7P73OrS6tPCwEaYuR9M/edit?usp=sharing" target="_blank">Blockhaus d’observation pour tourelle TSF</a><br>
-
-                <a href="https://docs.google.com/document/u/1/d/1dB8UHT0NL_0dcfGLEpJKImQSduq0DgWl8C0oF5Mcu4s/edit" target="_blank">Type A1</a>
-    </div>
-</div>
 
 <!-- SECTION 4 : DEFINITIONS -->
 <div id="definitions" class="section">
-    <h2>Définitions</h2>
-    <div class="block-list" style="text-align:center;">
-        <h3>Unités</h3>
-        <a href="https://docs.google.com/document/d/1AnvWWOoM1vxRC-8Jw10TgSwI-Ea7lyaCoNt-nLfCQZw/edit?usp=sharing" target="_blank">201ème R.I</a><br>
-                    <a href="https://docs.google.com/document/d/1AW3fxH3Mvs6b1Y131zraXDWrQkgVGCClX-9gLVDqxnw/edit?usp=sharing" target="_blank">100ème R.I</a><br>
-                    <a href="https://docs.google.com/document/d/1GQjcgpRDtZJoCoqG52wDXYpUNic9ZYY2ErXwVwQwUXw/edit?usp=sharing" target="_blank">16ème RRT</a><br>
-                    <a href="https://docs.google.com/document/d/1DvSBuPCS990sQELWWuqTXsea4ur0IPJN26qbyjMGOS8/edit?usp=sharing" target="_blank">La B.E.F</a>
+    <h2 style="text-align:center;">Définitions</h2>
 
+    <div class="definitions-gallery">
 
-        <h3>Constructions</h3>
-        <a href="definitions/sfl.html" target="_blank">Le Secteur Fortifié de Lille (SFL)</a><br>
-        <a href="definitions/blockhaus.html" target="_blank">Blockhaus</a><br>
-        <a href="definitions/pillbox.html" target="_blank">Pillbox</a><br>
-        <a href="definitions/lignemaginot.html" target="_blank">Ligne Maginot</a><br>
-        <a href="definitions/lignedaladier.html" target="_blank">Ligne Daladier</a><br>
-        <a href="definitions/bunker.html" target="_blank">Bunker</a><br>
-        <a href="definitions/oreillon.html" target="_blank">Oreillon</a><br>
-        <a href="definitions/flanquement.html" target="_blank">Flanquement</a><br>
-        <a href="definitions/frontal.html" target="_blank">Frontal</a><br>
-        <a href="definitions/portetypea.html" target="_blank">Porte blindée de type A</a><br>
-        <a href="definitions/portetypeb.html" target="_blank">Porte blindée de type B</a><br>
-        <a href="definitions/portetypec.html" target="_blank">Porte blindée de type C</a><br>
-        <a href="definitions/portetyped.html" target="_blank">Porte blindée de type D</a><br>
-        <a href="definitions/blindebef.html" target="_blank">Créneau blindé type BEF</a><br>
-        <a href="definitions/periscopev.html" target="_blank">Le périscope type V</a><br>
+        <div class="definition-card">
+            <a href="plantypes.html" target="_blank">
+            <img src="photodef/plantype.jpg" alt="Plan type">
+            <h3>Plans types</h3>
+        </div>
+
+        <div class="definition-card">
+            <a href="equipement.html" target="_blank">
+            <img src="photodef/equipement.jpg" alt="Équipement">
+            <h3>Équipement et armement</h3>
+        </div>
+
+        <div class="definition-card">
+            <a href="termes.html" target="_blank">
+            <img src="photodef/thermes.jpg" alt="Termes utilisés">
+            <h3>Termes utilisés</h3>
+        </div>
+
     </div>
 </div>
 
