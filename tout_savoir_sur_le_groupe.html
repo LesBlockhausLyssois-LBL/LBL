@@ -1,115 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/Y2g29xsg/Design-sans-titre-(30).png" />
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/Y2g29xsg/Design-sans-titre-(30).png">
     <script src="mobile-detect.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tout savoir sur le groupe - LesBlockhausLyssois</title>
+
+    <title>Aceuil - Les Blockhaus Lyssois</title>
+
     <link rel="stylesheet" href="style.css">
+
     <style>
-      body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #bdb7a8;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #000;
+        }
 
-    background-color: #bdb7a8;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+        #tout_savoir_sur_le_groupe {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255,255,255,0.75);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
 
-    min-height: 100vh;
-    color: #000;
-}
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
 
-        /* Bouton discret mentions légales */
+        .logo {
+            display: block;
+            width: 170px;
+            max-width: 90%;
+            margin: 0 auto 30px;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .boutons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 22px;
+            background: #2f5e87;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #1e4566;
+            transform: translateY(-2px);
+        }
+
+        .devenir-membre {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255,255,255,0.55);
+            border-radius: 10px;
+            text-align: center;
+        }
+
         .mentions-btn {
             position: fixed;
             bottom: 10px;
             right: 15px;
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0,0,0,0.3);
             padding: 6px 10px;
             border-radius: 8px;
             backdrop-filter: blur(4px);
-            transition: all 0.2s ease;
+            transition: all .2s ease;
         }
 
         .mentions-btn:hover {
             color: white;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0,0,0,0.6);
         }
     </style>
 </head>
 
 <body>
-    <aside class="sidebar">
-    </aside>
+
+    <aside class="sidebar"></aside>
+
     <script src="navigation.js"></script>
 
     <div id="tout_savoir_sur_le_groupe">
+
         <h1>À propos du groupe</h1>
+
+        <!-- Logo -->
+        <img src="fond/logo.jpg"
+             alt="Logo Les Blockhaus Lyssois"
+             class="logo">
+
         <p><strong>Les Blockhaus Lyssois : Béton, histoire et mémoire</strong></p>
-        <p>
-          Le groupe "Les Blockhaus Lyssois" est né d'une passion commune pour l'histoire et le patrimoine local, plus précisément celui des blockhaus présents sur le territoire de Lys-lez-Lannoy et ses environs.
-          Notre objectif principal est de préserver la mémoire de ces constructions, témoins silencieux d'un passé souvent douloureux mais toujours fascinant.
-        </p>
-        <p>
-          <strong>Nous nous engageons dans plusieurs actions pour atteindre ce but :</strong><br><br>
-          <strong>Recherche et documentation :</strong> Nous menons des recherches approfondies sur l'histoire des blockhaus, leur construction, leur utilisation. Nous rassemblons des informations, des photos et des documents d'archives pour constituer un répertoire complet et accessible au public.<br><br>
-          <strong>Préservation du patrimoine :</strong> Nous œuvrons à sensibiliser les autorités et le grand public à leur importance historique.<br><br>
-          <strong>Partage des connaissances :</strong> faire découvrir l'histoire des blockhaus à un public large, des passionnés d'histoire aux simples curieux.
-        </p>
-        <p><strong>Rejoignez "Les Blockhaus Lyssois"</strong> pour partager votre passion, contribuer à la sauvegarde de notre histoire et découvrir ensemble les secrets de ces fascinantes constructions !</p>
-        <p>Pour information : nous ne sommes pas une association.</p>
-        <a href="membres.html" target="_blank">Découvrez la liste de nos membres ICI</a><br>
-         <a href="https://forms.gle/dc52TZvApo6YsSUR7" target="_blank">Laissez nous un avis !</a><br>
-    </div>
+
+       <h2>Les Blockhaus Lyssois : Béton, histoire et mémoire</h2>
+
+<p>
+    Les Blockhaus Lyssois vous proposent de découvrir l’histoire méconnue des blockhaus du secteur fortifié de Lille à travers ses recherches, ses cartes détaillées, son musée virtuel, son site internet et ses livres.
+</p>
+
+<p>
+    Basé à Lys-lez-Lannoy, le groupe rassemble des passionnés d’histoire et de patrimoine qui œuvrent pour préserver la mémoire des fortifications encore présentes dans notre région. Grâce à un important travail de documentation, de collecte d’archives, de photographies et de recherches historiques, Les Blockhaus Lyssois mettent en lumière ces constructions de béton, témoins silencieux d'une histoire oubliée.
+</p>
+
+<p>
+    À travers ses contenus, ses découvertes de terrain et ses ressources accessibles à tous, le groupe permet aux passionnés comme aux simples curieux de mieux comprendre l’histoire locale et de redécouvrir un patrimoine souvent oublié.
+</p>
+
+<p>
+    Toutes nos recherches et ressources sont librement accessibles : une occasion idéale de partir à la découverte de ce patrimoine historique méconnu.
+</p>
+
+        <p><strong>Pour information :</strong> nous ne sommes pas une association.</p>
+
+        <div class="boutons">
+
+          
+            <a href="https://forms.gle/dc52TZvApo6YsSUR7" target="_blank" class="action-btn">
+                Laisser un avis
+            </a>
+
+        </div>
+
+        <div class="devenir-membre">
+
+            <h2>Devenir membre</h2>
+
+            <p>
+                Pour devenir membre, c'est très simple.
+                Il vous suffit de remplir le questionnaire ci-dessous
+                et nous vous donnerons notre réponse.
+            </p>
+
+            <!-- Remplace le # par le lien de ton formulaire -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOjpjgye15UT-hEFVFVxDT9DE8HlR0GvmAMpKcVyw-OJwHVA/viewform?fbclid=IwVERDUANJ-XRleHRuA2FlbQIxMAABHpF13s_2GNG9Tp0EOD8pWOMO8ryMo3z1uHdDczJt_jdWme2aK20dhpz_Hdhp_aem_Ft9v2MozCWEHyGaUtOSNFg" target="_blank" class="action-btn">
+                Devenir membre
+            </a>
+
+              <a href="membres.html" target="_blank" class="action-btn">
+                Les membres actifs
+            </a>
+
+
+        </div>
+
+      
+<h2>Les Blockhaus Lyssois en chiffres</h2>
+
+<p><strong>Les Blockhaus Lyssois, c'est :</strong></p>
+
+<ul>
+    <li><strong>3 livres</strong> mis à disposition gratuitement.</li>
+    <li><strong>Plus de 950 constructions</strong> cartographiées.</li>
+    <li><strong>Plus de 150 documents</strong> disponibles dans les rubriques <em>Les Blockhaus</em> et <em>Le Dico</em>.</li>
+</ul>
+
+<p><strong>Et ce n'est que le début !</strong></p>
+
     </div>
 
     <!-- Bouton mentions légales -->
-    <a href="mentionslegales.html" class="mentions-btn">Mentions légales</a>
+    <a href="mentionslegales.html" class="mentions-btn">
+        Mentions légales
+    </a>
+
+    <script>
+        const fonds = [
+            "fond/fond1.jpg",
+            "fond/fond2.jpg",
+            "fond/fond3.jpg",
+            "fond/fond4.jpg",
+            "fond/fond5.jpg",
+            "fond/fond6.jpg",
+            "fond/fond7.jpg",
+            "fond/fond8.jpg",
+            "fond/fond9.jpg",
+            "fond/fond10.jpg",
+            "fond/fond11.jpg",
+            "fond/fond12.jpg",
+            "fond/fond13.jpg",
+            "fond/fond14.jpg",
+            "fond/fond15.jpg"
+        ];
+
+        let precedent = localStorage.getItem("dernierFond");
+        let disponible = fonds.filter(f => f !== precedent);
+
+        let fondAleatoire =
+            disponible[Math.floor(Math.random() * disponible.length)];
+
+        localStorage.setItem("dernierFond", fondAleatoire);
+
+        document.body.style.backgroundImage =
+            `linear-gradient(
+                rgba(189,183,168,0.75),
+                rgba(189,183,168,0.75)
+            ),
+            url('${fondAleatoire}')`;
+    </script>
 
 </body>
-    <script>
-const fonds = [
-    "fond/fond1.jpg",
-    "fond/fond2.jpg",
-    "fond/fond3.jpg",
-    "fond/fond4.jpg",
-    "fond/fond5.jpg",
-    "fond/fond6.jpg",
-    "fond/fond7.jpg",
-    "fond/fond8.jpg",
-    "fond/fond9.jpg",
-    "fond/fond10.jpg",
-    "fond/fond11.jpg",
-    "fond/fond12.jpg",
-    "fond/fond13.jpg",
-    "fond/fond14.jpg",
-    "fond/fond15.jpg"
-];
-
-let precedent = localStorage.getItem("dernierFond");
-let disponible = fonds.filter(f => f !== precedent);
-
-let fondAleatoire =
-    disponible[Math.floor(Math.random() * disponible.length)];
-
-localStorage.setItem("dernierFond", fondAleatoire);
-
-document.body.style.backgroundImage =
-    `linear-gradient(
-        rgba(189,183,168,0.75),
-        rgba(189,183,168,0.75)
-    ),
-    url('${fondAleatoire}')`;
-</script>
 </html>
-
-
-
-
-
