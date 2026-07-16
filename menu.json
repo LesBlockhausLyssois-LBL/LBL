@@ -3,11 +3,11 @@
     "texte": "Les Blockhaus Lyssois"
   },
   "ressources": [
-    {"label": "Aceuil", "link": "tout_savoir_sur_le_groupe.html"},
+    {"label": "Acceuil", "link": "tout_savoir_sur_le_groupe.html"},
     {"label": "Les Blockhaus", "link": "Blockhaus.html"},
     {"label": "Nos Livres !", "link": "https://lesblockhauslyssois-lbl.github.io/livre/", "external": true},
     {"label": "Nos réseaux", "link": "nos_reseaux.html"},
-    {"label": "Nouveautées", "link": "nouveautees.html"},
+    {"label": "Nouveautés", "link": "nouveautees.html"},
     {"label": "Le Musée Virtuel", "link": "https://lesblockhauslyssois-lbl.github.io/musee-virtuel/"}
   ],
   "actions": [
