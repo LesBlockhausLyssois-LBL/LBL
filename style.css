@@ -749,8 +749,10 @@ table td, table th {
     align-items: center;
     justify-content: center;
     font-weight: 800;
+    font-size: 30px;
     letter-spacing: 0.5px;
     z-index: 1100;
+    box-sizing: border-box;
 }
 
 .menu-wrap { 
@@ -802,5 +804,35 @@ input, textarea, select {
     button, a {
         min-height: 48px;
         min-width: 48px;
+    }
+}
+
+/* Centrage du menu sur PC */
+@media screen and (min-width: 769px) {
+
+    .menu-wrap {
+        justify-content: center;
+    }
+
+    .menu-resources,
+    .menu-actions {
+        justify-content: center;
+    }
+
+}
+
+@media (min-width: 769px) {
+    .sidebar {
+        top: var(--banner-height);
+        height: var(--nav-height);
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-wrap {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
