@@ -8,6 +8,7 @@
     {"label": "Nos Livres !", "link": "https://lesblockhauslyssois-lbl.github.io/livre/", "external": true},
     {"label": "Nos réseaux", "link": "nos_reseaux.html"},
     {"label": "Nouveautés", "link": "nouveautees.html"},
+    {"label": "Événements", "link": "evenements.html"},
     {"label": "Le Musée Virtuel", "link": "https://lesblockhauslyssois-lbl.github.io/musee-virtuel/"}
   ],
   "actions": [
