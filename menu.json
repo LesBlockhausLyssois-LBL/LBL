@@ -1,0 +1,17 @@
+{
+  "bandeau": {
+    "texte": "Les Blockhaus Lyssois"
+  },
+  "ressources": [
+    {"label": "Acceuil", "link": "tout_savoir_sur_le_groupe.html"},
+    {"label": "Les Blockhaus", "link": "Blockhaus.html"},
+    {"label": "Nos Livres !", "link": "https://lesblockhauslyssois-lbl.github.io/livre/", "external": true},
+    {"label": "Nos réseaux", "link": "nos_reseaux.html"},
+    {"label": "Nouveautés", "link": "nouveautees.html"},
+    {"label": "Événements", "link": "evenements.html"},
+    {"label": "Le Musée Virtuel", "link": "https://lesblockhauslyssois-lbl.github.io/musee-virtuel/"}
+  ],
+  "actions": [
+    {"label": "Nous contacter", "link": "contact.html"}
+  ]
+}

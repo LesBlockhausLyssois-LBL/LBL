@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/Y2g29xsg/Design-sans-titre-(30).png" />
+    <script src="mobile-detect.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos membres impliqués - LesBlockhausLyssois</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .members-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .member-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .member-item img {
+            width: 120px;       /* taille contrôlée */
+            height: 120px;
+            object-fit: cover;  /* évite les déformations */
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .member-info .name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .member-info .role {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .member-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .member-item img {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+    </aside>
+
+    <!-- Navigation visible -->
+    <script src="navigation.js"></script>
+
+    <div>
+        <h1>Nos membres impliqués</h1>
+
+        <div class="members-container">
+
+            <div class="member-item">
+                <img src="photos/erwan.jpeg" alt="Photo de Erwan Merlin">
+                <div class="member-info">
+                    <div class="name">Erwan Merlin</div>
+                    <div class="role">Fondateur (groupe crée le 06/05/2025)</div>
+                    <div class="description">
+                        Recherche historique, cartographie et photographie.
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-item">
+                <img src="photos/icon.png" alt="Photo de Gael Muller">
+                <div class="member-info">
+                    <div class="name">Gael Muller</div>
+                    <div class="role">Informaticien</div>
+                    <div class="description">
+                        Gestion et développement du site internet.
+                    </div>
+                </div>
+            </div>
+
+             <div class="member-item">
+                <img src="photos/icon.png" alt="Photo de Jean Michel Wauquier">
+                <div class="member-info">
+                    <div class="name">Gael Merlin</div>
+                    <div class="role">Expert armée britannique</div>
+                    <div class="description">
+                        Rédactions de plusieurs documents sur la BEF.
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-item">
+                <img src="photos/alain.png" alt="Photo de Jean Michel Wauquier">
+                <div class="member-info">
+                    <div class="name">Alain Defretin</div>
+                    <div class="role">Passioné de fortifications</div>
+                    <div class="description">
+                        Photographies des blockhaus et participation aux relevés de terrain.
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-item">
+                <img src="photos/JM.png" alt="Photo de Jean Michel Wauquier">
+                <div class="member-info">
+                    <div class="name">Jean Michel Wauquier</div>
+                    <div class="role">Responsable communication</div>
+                    <div class="description">
+                        Communication.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
